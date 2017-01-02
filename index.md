@@ -1,16 +1,14 @@
 ---
-layout: page
-title: About me
-subtitle: Why you'd want to go on a date with me
+layout: default
+title: Jonathan Cornford's Website
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+#Insert pretty picture here:
+![](/img/path.jpg)
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+## Welcome to my home page...:
 
-What else do you need?
+About me, then click for blog posts
 
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+Testing markdown for home page - note using default as the layout sorts you out with not needing to have the same 
+title the page head! 
