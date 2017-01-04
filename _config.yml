@@ -14,7 +14,7 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website ## this is what happens in the top left of the page!
-title: jonathancornford
+title: Home
 
 # Short description of your site
 description: Just attempting to get on the internet bandwagon!
@@ -33,8 +33,8 @@ avatar: "/img/hello_world.jpeg"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-# title-img: "/img/avatar-icon.png"
-
+title-img: "/img/home_64.png"
+# in nav html-  <a class="navbar-brand navbar-brand-logo" href="{{ site.url }}"><img src="{{ site.title-img }}"/></a>
 # --- Footer options --- #
 
 # Change all these values or delete the ones you don't want.
