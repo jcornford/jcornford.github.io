@@ -15,7 +15,7 @@ My background is Biology, specifically Physiological Sciences (or Medicine witho
  and data-science that quite often the reader is assumed to have done Physics or Engineering at undergraduate level. That's fine, but it just takes longer to
  understand what is going on...
 
-So, this [blog]("http://jcornford.github.io/blog") is primarily aimed at Biologists, who have done a limited amount of maths, but have experience coding in python.
+So, this [blog]("blog") is primarily aimed at Biologists, who have done a limited amount of maths, but have experience coding in python.
 I'll try to use coding to inform the maths, as maths really started making more sense to me when thinking in terms of code. 
 
 <a href="{{ blog | prepend: site.baseurl }}">

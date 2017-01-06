@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c540c11d-904e-4429-9f0d-826635034e17" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog_assets/1_data_curve_polyfit.png" afterPath="$PROJECT_DIR$/blog_assets/1_data_curve_polyfit.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aboutme.md" afterPath="$PROJECT_DIR$/aboutme.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.md" afterPath="$PROJECT_DIR$/index.md" />
     </list>
     <ignored path="jcornford.github.io.iws" />
@@ -108,8 +106,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.397351">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.29801324">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -505,7 +503,13 @@
       <option name="project" value="LOCAL" />
       <updated>1483713874873</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update homepage&#10;">
+      <created>1483722490501</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1483722490501</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -567,7 +571,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inital commit" />
     <MESSAGE value="update blog&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="update blog&#10;" />
+    <MESSAGE value="update homepage&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="update homepage&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -890,8 +895,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.397351">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.29801324">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding />
         </state>
       </provider>
