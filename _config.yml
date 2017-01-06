@@ -33,7 +33,7 @@ avatar: "/img/hello_world.jpeg"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
-title-img: "/img/home_64.png"
+title-img: "/img/home_32.png"
 # in nav html-  <a class="navbar-brand navbar-brand-logo" href="{{ site.url }}"><img src="{{ site.title-img }}"/></a>
 # --- Footer options --- #
 
@@ -45,11 +45,11 @@ author:
 
   github: "jcornford"
 
-  linkedin: yourname  # eg. daattali
+  linkedin: jhcornford
 
-  stackoverflow: yourlink  # eg. "3943160/daattali"
+  stackoverflow: yourlink
 
-  instagram: yourname # eg. daattali
+  instagram: yourname
 
 
 # Select which links to show in the footer
@@ -83,10 +83,10 @@ url-pretty: "jcornford.github.io"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-#disqus: "www-jcornford-github-io"
+disqus: "www-jcornford-github-io"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: "UA-89445895-1"
+google_analytics: "UA-89445895-1"
 
 # Facebook App ID
 # fb_app_id: ""
