@@ -2,15 +2,20 @@
 layout: default
 title: Jonathan Cornford's Website
 ---
+###Under construction:<br>
+###Insert pretty picture here:
 
-#Insert pretty picture here:
-![](/img/path.jpg)
 
-## Welcome to my home page...:
+## Welcome to my home page!
+I'm Jonathan, a final year neuroscience PhD student at Queen Square, UCL. I'm interested in how single neurons work!, and machine learning.
+After a few blogs on some basics, I intend to get into using spiking neural networks to solve machine learning problems. 
 
-Coding and maths really help each other, put this in the home page, assume relatively  decent at coding.
+## Why this website?
+My background is Biology, specifically Physiological Sciences (or Medicine without the troublesome people), and I found when reading articles on machine learning
+ and data-science that quite often the reader is assumed to have done Physics or Engineering at undergraduate level. That's fine, but it just takes longer to
+ understand what is going on...
 
-About me, then click for blog posts
+So, this [blog]("http://jcornford.github.io/blog") is primarily aimed at Biologists, who have done a limited amount of maths, but have experience coding in python.
+I'll try to use coding to inform the maths, as maths really started making more sense to me when thinking in terms of code. 
 
-Testing markdown for home page - note using default as the layout sorts you out with not needing to have the same 
-title the page head! 
+<a href="{{ blog | prepend: site.baseurl }}">
