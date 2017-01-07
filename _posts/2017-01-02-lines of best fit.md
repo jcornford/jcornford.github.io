@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lines of best fit!
+title: Basics 1. Lines of best fit!
 subtitle: Plotting lines of best-fit using python
 ---
 
