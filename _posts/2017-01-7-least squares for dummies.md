@@ -46,21 +46,18 @@ derivative of RSS with respect to beta, and then solve for $\mathbf{\beta}$ when
 $$ RSS(\beta) = (y-X\beta)^T(y-X\beta) $$
 
 
-$$ \frac{\partial RSS}{\partial \beta} = \frac{\partial}{\partial \beta} \Big( (y-X\beta)^T(y-X\beta) \Big) $$
-
-
-$$ \frac{\partial RSS}{\partial \beta} = \frac{\partial}{\partial \beta} \Big( y^Ty - y^TX\beta -\beta^TX^Ty +\beta^TX^TX\beta \Big) $$
+$$ RSS(\beta)=  y^Ty - y^TX\beta -\beta^TX^Ty +\beta^TX^TX\beta  $$
 
 Notice that the two inner terms are scalars as they are the dot products of two vectors, and a scalar transposed is just
  the original scalar. Therefore we can transpose either term. Will do this step by step...:
  
-$$ \frac{\partial RSS}{\partial \beta} = \frac{\partial}{\partial \beta} \Big( y^Ty - y^TX\beta - (\beta^TX^Ty)^T +\beta^TX^TX\beta \Big) $$
+$$ RSS(\beta) = y^Ty - y^TX\beta - (\beta^TX^Ty)^T +\beta^TX^TX\beta  $$
 
 
-$$ \frac{\partial RSS}{\partial \beta} = \frac{\partial}{\partial \beta} \Big( y^Ty - y^TX\beta - y^TX\beta +\beta^TX^TX\beta \Big) $$
+$$ RSS(\beta) =  y^Ty - y^TX\beta - y^TX\beta +\beta^TX^TX\beta  $$
 
 
-$$ \frac{\partial RSS}{\partial \beta} = \frac{\partial}{\partial \beta} \Big( y^Ty - 2y^TX\beta +\beta^TX^TX\beta \Big) $$
+$$ RSS(\beta) =  y^Ty - 2y^TX\beta +\beta^TX^TX\beta  $$
 
 
 Now take the derivative! Note the first term disappears as does not depend on $\beta$. 
