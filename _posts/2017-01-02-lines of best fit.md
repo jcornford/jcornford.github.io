@@ -92,8 +92,8 @@ plt.plot(x,line, 'r--')
 Okay, so that's all good, but what if you want a curvey line of best fit, to join up the points...? <br>
 
 ## Give me a line that goes nicely through my points:
-**Sigh**... I'm firmly a member of the camp of "your-line-reflects-your-hypothesis-on-the-data-generating-process", i.e.
- **don't** just aim for the line to go through all your datapoints, (like the default **abomination in excel**) unless you think the underlying relationship 
+**Sigh**... I'm a devoted member of the club of "your-line-reflects-your-hypothesis-on-the-data-generating-process", i.e.
+ **don't** just aim for the line to go through all your datapoints (like the default **abomination in excel**) unless you think the underlying relationship 
  between x and y is truely the nature of the function that describes your line. If in doubt use a straight line, or let the datapoints speak for themselves.
  
 However, if you insist, we can just dial up and down the polynomial degree argument in polyfit...:
@@ -127,6 +127,7 @@ We are now augmenting our $x$'s by raising them to powers from 0 - to our polyno
 $$ y = w_0x^0 + w_1x^1 + w_2x^2 + ... + w_{p-1}x^{p-1}+ w_{p}x^{p}$$
 
 This can be better expressed using a summation sign (think for loop):
+
 $$y = \sum_{i = 0}^{p} w_ix^i $$
 
 Note, that we will not have to explicitly add a $b$ for our interecept, this is inbuilt in the expression as $x^0 = 1$, and therefore $w_0 = b$.
@@ -153,7 +154,10 @@ $\mathbf{y}$ is the original vector of target $y$ values<br>
 $\mathbf{X}$ is a Vandermonde matrix constructed from the original $\mathbf{x}$<br> 
 $\mathbf{\beta}$ is our vector of weights, or coefficients 
 
-** Shit, using matrix algebra here, and also unclear the difference between estimated y's and actually y's - need to change this :p**
+<span style="color:red"> Don't worry if you've not done/forgotten what happens when a vector and matrix meet. Above is just 
+a concise way of writing $ \sum_{i}^{n}y_i = \sum_{i}^{n}w_0x_i^0 + w_1x_i^1 + ... + + w_{p}x_i^{p}$. So we are just looping through all
+ of the datapoints in the $\mathbf{y}$ and original $\mathbf{x}$ vectors. If this isn't clear, smash down a comment below and I'll edit it!  </span>
+
 
 ## Okay, well know we know this, we don't need np.polyfit!
 - note the *cool* use of a [**closure**](http://www.learnpython.org/en/Closures), to replicate the np.poly1d() call
