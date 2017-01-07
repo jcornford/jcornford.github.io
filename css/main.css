@@ -3,7 +3,7 @@
 /* --- General --- */
 
 body {
-  font-family:  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Georgia', 'Lora', 'Times New Roman', serif;
+  font-family:  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Open Sans', 'Lora','Arial', 'Times New Roman', serif;
   font-size: 18px;
   color: #404040;
   position: relative;
@@ -19,7 +19,7 @@ p a {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
-  font-weight: 800;
+  font-weight: 500;
 }
 a {
   color: #008AFF;
@@ -128,7 +128,7 @@ img {
   transition: padding .5s ease-in-out;  
 }
 .navbar-custom .navbar-brand-logo img {
-  height: 40px;
+  height: 32px;
   -webkit-transition: height .5s ease-in-out;
   -moz-transition: height .5s ease-in-out;
   transition: height .5s ease-in-out;
@@ -137,12 +137,12 @@ img {
   padding-top: 5px;
 }
 .navbar-custom.top-nav-short .navbar-brand-logo img {
-  height: 40px;
+  height: 32px;
 }
 
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    padding: 20px 0;
+    padding: 10px 0;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
