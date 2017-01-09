@@ -74,7 +74,7 @@ def give_me_a_straight_line_without_polyfit(x,y):
     ones_vec = np.ones(x.shape)
     X = np.vstack([x, ones_vec]).T #.T as we want two columns
     
-    # now plugin our least sqaures "solution"
+    # now plugin our least squares "solution"
     XX   = np.linalg.inv(np.dot(X.T, X))
     Xt_y = np.dot(X.T, y.T) #y.T as we want column vector
     beta = np.dot(XX, Xt_y)
@@ -102,7 +102,7 @@ However, if you insist, we can just dial up and down the polynomial degree argum
  
 ```python
 def give_me_a_line_like_excel(x,y):
-    coefs = np.polyfit(x,y,deg=3)
+    coefs = np.polyfit(x,y,deg=8)
     p_obj = np.poly1d(coefs) #this is a convenience class
     return p_obj
     

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c540c11d-904e-4429-9f0d-826635034e17" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" afterPath="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" afterPath="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" />
     </list>
     <ignored path="jcornford.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,26 +64,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-01-02-lines of best fit.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2017-01-02-lines of best fit.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="143" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.44785276">
+              <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-01-7-least squares for dummies.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017-01-7-least squares for dummies.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63190186">
+            <state vertical-scroll-proportion="-17.758621">
               <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
               <folding />
             </state>
@@ -131,6 +131,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" />
+        <option value="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" />
       </list>
     </option>
   </component>
@@ -458,7 +459,13 @@
       <option name="project" value="LOCAL" />
       <updated>1483961571106</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="slight update on blog 2">
+      <created>1483962785498</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1483962785498</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -841,13 +848,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="143" selection-end-column="2" />
+        <state vertical-scroll-proportion="-17.758621">
+          <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -858,13 +865,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63190186">
-          <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.44785276">
+          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
           <folding />
         </state>
       </provider>
