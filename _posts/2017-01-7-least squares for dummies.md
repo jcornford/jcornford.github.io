@@ -70,7 +70,7 @@ estimates that particular parameter vector gives us and the actual values ($\eps
 
 $$ RSS(\mathbf{\beta}) = (\mathbf{y}-\mathbf{X}\mathbf{\beta})^2 $$
 
-At this point, it is probably also worth refreshing what the neat matrix notation above actually means. Apparently, it is 
+At this point, it is probably worth refreshing what the neat matrix notation above actually means. Apparently, it is 
 good for ones soul to switch in and out of matrix notation on a whim...
 
 $$ 
@@ -91,7 +91,7 @@ $$ RSS(\beta) = (y-X\beta)^T(y-X\beta) $$
 
 $$ RSS(\beta)=  y^Ty - y^TX\beta -\beta^TX^Ty +\beta^TX^TX\beta  $$
 
-Notice that the two inner terms are scalars as they are the dot product of two vectors, and a scalar transposed is just
+Notice that the two inner terms are scalars, as they are the dot product of two vectors, and a scalar transposed is just
  the original scalar. Therefore, we can transpose either term:
  
 $$ RSS(\beta) = y^Ty - y^TX\beta - (\beta^TX^Ty)^T +\beta^TX^TX\beta  $$
@@ -108,6 +108,22 @@ Now we are in a position to take the derivative! Note the first term disappears 
 $$ \frac{\partial RSS}{\partial \beta} = 0 - 2\frac{\partial}{\partial \beta} \Big(y^TX\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big) $$
 
 <span style="color:red"> ** Drop out to summation symbols here and do normal derivatives, then reconvert to matrix notation </span>
+
+You'd be forgiven for feeling like we must be a little stuck here. But let's break down what's going on. Notice that
+the two terms are just scalars, one being the sum of the product between our estimates, $\mathbf{\hat{y}}$, and $\mathbf{y}$ itself;
+the other the sum of the square of our estimates, $\mathbf{\hat{y}}$. We want to know the expression for how these scalar
+quantities change when we nudge around our parameter column vector, $\beta$.
+
+
+If the dimensions of the terms are written out, it's also easy to see that $y^TX$ is just going to be a $1\times P$ vector, which I'll call 
+$c^T$, as $y^TX$ is $1\times N N\times P$. Similarly, $X^TX$ is a $P\times P$ matrix, which I'll call $A$, as $X^TX \$ is
+ $P\times N N \times P$. We can therefore simplify our expression:
+  
+$$ \frac{\partial RSS}{\partial \beta} = -2\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
+
+Here, we are actually in a position to cheat, and [look up](https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities) the
+answers (check out the 1st and 3rd rows below the solid line, replacing $x$ for $\beta$ and $a$ for $c$). However, we don't need to cheat! Let's
+start with $\frac{\partial}{\partial \beta} \Big(c^T\beta \Big)$. 
 
 $$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + (X^TX + (X^TX)^T)\beta $$
 
