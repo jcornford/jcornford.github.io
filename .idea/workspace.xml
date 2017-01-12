@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c540c11d-904e-4429-9f0d-826635034e17" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" afterPath="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" afterPath="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" />
     </list>
     <ignored path="jcornford.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,27 +64,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-01-02-lines of best fit.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017-01-02-lines of best fit.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44785276">
+            <state vertical-scroll-proportion="-39.310345">
               <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-01-7-least squares for dummies.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2017-01-7-least squares for dummies.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.758621">
-              <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.595092">
+              <caret line="77" column="3" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -130,8 +130,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" />
         <option value="$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md" />
+        <option value="$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md" />
       </list>
     </option>
   </component>
@@ -465,7 +465,13 @@
       <option name="project" value="LOCAL" />
       <updated>1483962785498</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="typo blog 1">
+      <created>1483964127973</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1483964127973</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -527,7 +533,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="inital commit" />
     <MESSAGE value="slight update on blog 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="slight update on blog 2" />
+    <MESSAGE value="typo blog 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="typo blog 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -848,13 +855,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.758621">
-          <caret line="166" column="5" selection-start-line="166" selection-start-column="5" selection-end-line="166" selection-end-column="5" />
+        <state vertical-scroll-proportion="-39.310345">
+          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -865,13 +872,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-01-02-lines of best fit.md">
+    <entry file="file://$PROJECT_DIR$/_posts/2017-01-7-least squares for dummies.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44785276">
-          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.595092">
+          <caret line="77" column="3" selection-start-line="77" selection-start-column="3" selection-end-line="77" selection-end-column="3" />
           <folding />
         </state>
       </provider>

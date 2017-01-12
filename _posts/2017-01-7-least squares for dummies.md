@@ -75,7 +75,7 @@ good for ones soul to switch in and out of matrix notation on a whim...
 
 $$ 
 RSS(\mathbf{\beta}) = \sum_{i=1}^{n}{(\mathbf{y}_i-\sum_{j=1}^p\mathbf{X}_{ij}\mathbf{\beta}_j)^2}
- = \sum_{i=1}^n{(\mathbf{y}_i - \mathbf{X}_{i,:}\mathbf{\beta})^2} = (\mathbf{y}-\mathbf{X}\mathbf{\beta})^2
+ =  (\mathbf{y}-\mathbf{X}\mathbf{\beta})^2
 $$
 
 Okay, so the overall aim is the to find the parameter vector $\beta$, that gives us the minimum value for RSS. This is done by taking the 
@@ -166,9 +166,49 @@ $$\frac{\partial}{\partial \beta} \Big(y^TX\beta \Big) =  (y^TX)^T = X^Ty$$
 
 and substituting back in
 
-$$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + \frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big) $$
+$$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
 
-Now we just have $ \frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big)$ to deal with.
+Now we just have $\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big)$, which is our simplified version
+of $\frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big)$, to deal with. This is more complicated, but
+again, we can just break it down to summation notation.
+
+$$ \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j $$
+
+$$
+\frac{\partial}{\partial \beta} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big) = 
+
+\begin{bmatrix}
+ \frac{\partial}{\partial \beta_1} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)  \\
+ \frac{\partial}{\partial \beta_2} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)   \\
+  \vdots \\
+  \frac{\partial}{\partial \beta_N} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)  
+\end{bmatrix}
+
+= \begin{bmatrix}
+ \frac{\partial}{\partial \beta_1} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j ) +0 \dots +0   \\
+ 0 + \frac{\partial}{\partial \beta_2} \Big(c_2\beta_2\Big)  \dots +0    \\
+  \vdots \\
+ 0 + 0 \dots  \frac{\partial}{\partial \beta_N} \Big(c_N\beta_N\Big)  
+\end{bmatrix}
+
+= \begin{bmatrix}
+ c_1\beta_1  \\
+ c_2\beta_2 \\
+  \vdots \\
+ c_N\beta_N 
+\end{bmatrix}
+
+$$
+
+
+
+
+
+
+
+
+
 
 
 $$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + (X^TX + (X^TX)^T)\beta $$
