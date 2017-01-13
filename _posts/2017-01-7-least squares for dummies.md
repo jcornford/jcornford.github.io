@@ -81,8 +81,8 @@ $$
 Okay, so the overall aim is the to find the parameter vector $\beta$, that gives us the minimum value for RSS. This is done by taking the 
 derivative of RSS with respect to beta, and then solving for $\mathbf{\beta}$ when the derivative is 0. This solution, when
   $\frac{\partial RSS}{\partial \mathbf{\beta}} = 0$, will give us the $\mathbf{\beta}$ that corresponds to either a 
- maximum or minimum of $RSS(\mathbf{\beta})$.<span style="color:red"> *Our function is a bowl though! (as quadratic with respect to $\mathbf{\beta}$,
-  therefore a parabola) - this needs to be clearer*</span> . To start, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a vector, so to square it we need to take the dot product:
+ maximum or minimum of $RSS(\mathbf{\beta})$. Our function is a bowl though! RSS is the sum of squares so it is always positive, therefore it must be a bowl (we could also look
+ at second derivatives, but that is for later!). To start, $(\mathbf{y}-\mathbf{X}\mathbf{\beta})$ is a vector, so to square it we need to take the dot product:
  $(\mathbf{y}-\mathbf{X}\mathbf{\beta})^T(\mathbf{y}-\mathbf{X}\mathbf{\beta})$.
   
 
@@ -107,9 +107,7 @@ Now we are in a position to take the derivative! Note the first term disappears 
 
 $$ \frac{\partial RSS}{\partial \beta} = 0 - 2\frac{\partial}{\partial \beta} \Big(y^TX\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big) $$
 
-<span style="color:red"> ** Drop out to summation symbols here and do normal derivatives, then reconvert to matrix notation </span>
-
-You'd be forgiven for feeling like we must be a little stuck here. But let's break down what's going on. Notice that
+You'd be forgiven for feeling like we must be a little stuck here, as I said you only needed to know the basics of linear algebra. But let's break down what's going on. Notice that
 the two terms are just scalars, one being the sum of the product between our estimates, $\mathbf{\hat{y}}$, and $\mathbf{y}$ itself;
 the other the sum of the square of our estimates, $\mathbf{\hat{y}}$. We want to know the expression for how these scalar
 quantities change when we nudge around our parameter column vector, $\beta$.
@@ -131,20 +129,20 @@ We want to know how this dot product changes as $\beta$ is altered. We can write
 <span style="color:red"> ** Needs to be clearer </span>
 
 $$
-\frac{\partial}{\partial \beta} \Big(\sum_i^N c_i\beta_i \Big) = 
+\frac{\partial}{\partial \beta} \Big(\sum_i^P c_i\beta_i \Big) = 
 
 \begin{bmatrix}
- \frac{\partial}{\partial \beta_1} \Big(\sum_i^N c_i\beta_i \Big)  \\
- \frac{\partial}{\partial \beta_2} \Big(\sum_i^N c_i\beta_i \Big)   \\
+ \frac{\partial}{\partial \beta_1} \Big(\sum_i^P c_i\beta_i \Big)  \\
+ \frac{\partial}{\partial \beta_2} \Big(\sum_i^P c_i\beta_i \Big)   \\
   \vdots \\
-  \frac{\partial}{\partial \beta_N} \Big(\sum_i^N c_i\beta_i \Big)  
+  \frac{\partial}{\partial \beta_N} \Big(\sum_i^P c_i\beta_i \Big)  
 \end{bmatrix}
 
 = \begin{bmatrix}
  \frac{\partial}{\partial \beta_1} \Big(c_1\beta_1\Big) +0 \dots +0   \\
  0 + \frac{\partial}{\partial \beta_2} \Big(c_2\beta_2\Big)  \dots +0    \\
   \vdots \\
- 0 + 0 \dots  \frac{\partial}{\partial \beta_N} \Big(c_N\beta_N\Big)  
+ 0 + 0 \dots  \frac{\partial}{\partial \beta_P} \Big(c_P\beta_P\Big)  
 \end{bmatrix}
 
 = \begin{bmatrix}
@@ -156,15 +154,15 @@ $$
 
 $$
 
-Therefore:
+Therefore the derivative of the dot product $c^T\beta$ ends up just being $c$:
 
 $$\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) =  c$$
 
-So:
+As $(c^T)^T = c$, we just need to take the transpose of our original $y^TX$ term:
 
 $$\frac{\partial}{\partial \beta} \Big(y^TX\beta \Big) =  (y^TX)^T = X^Ty$$
 
-and substituting back in
+and substituting back in to our simplified expression, we are one derivative down!
 
 $$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
 
@@ -173,43 +171,95 @@ of $\frac{\partial}{\partial \beta} \Big(\beta^TX^TX\beta \Big)$, to deal with. 
 again, we can just break it down to summation notation.
 
 $$ \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
-\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j $$
+\frac{\partial RSS}{\partial \beta}\Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j \Big)$$
+
+However, now we have a quadratic form, unlike our linear form from before with $c^T$. 
+But the derivative is a linear operator, we can move it inside the summation signs...
+
+$$\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+ \sum_{i=1}^p\sum_{j=1}^p \frac{\partial RSS}{\partial \beta} \beta_i A_{ij}\beta_j $$
+
+The individual terms we are now taking the derivative of are just scalars. So we can apply techniques from univarate calculus.
+In this case we can deploy the product rule - which is $\frac{d}{dx}u(x)v(x) = u(x)\frac{dv(x)}{dx}+\frac{du(x)}{dx}v(x)$.
 
 $$
-\frac{\partial}{\partial \beta} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big) = 
+\sum_{i=1}^p\sum_{j=1}^p \frac{\partial}{\partial \beta} \beta_i A_{ij}\beta_j = 
+\sum_{i=1}^p\sum_{j=1}^p \Big[ \frac{\partial \beta_i}{\partial \beta} A_{ij}\beta_j + \beta_i \frac{\partial A_{ij}\beta_j}{\partial \beta}\Big] $$
+
+Again, $\partial\beta$ is a vector of partial derivative notation:
+
+$$
+
+\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+\begin{bmatrix}
+  \sum_{i=1}^p\sum_{j=1}^p \frac{\partial}{\partial \beta_1}\beta_i A_{ij}\beta_j   \\
+ \sum_{i=1}^p\sum_{j=1}^p \frac{\partial}{\partial \beta_2}\beta_i A_{ij}\beta_j    \\
+  \vdots \\
+   \sum_{i=1}^p\sum_{j=1}^p\frac{\partial}{\partial \beta_P}\beta_i A_{ij}\beta_j  
+\end{bmatrix}
+
+= \begin{bmatrix}
+\sum_{i=1}^p\sum_{j=1}^p \Big[ \frac{\partial \beta_i}{\partial \beta_1} A_{ij}\beta_j + \beta_i \frac{\partial A_{ij}\beta_j}{\partial \beta_1}\Big]\\
+\sum_{i=1}^p\sum_{j=1}^p \Big[ \frac{\partial \beta_i}{\partial \beta_2} A_{ij}\beta_j + \beta_i \frac{\partial A_{ij}\beta_j}{\partial \beta_2}\Big]\\
+
+ \vdots \\
+\sum_{i=1}^p\sum_{j=1}^p \Big[ \frac{\partial \beta_i}{\partial \beta_P} A_{ij}\beta_j + \beta_i \frac{\partial A_{ij}\beta_j}{\partial \beta_P}\Big]\\
+
+\end{bmatrix}
+$$
+
+If we look only at $\sum_{i=1}^p\sum_{j=1}^p \Big[ \frac{\partial \beta_i}{\partial \beta_P} A_{ij}\beta_j + \beta_i \frac{\partial A_{ij}\beta_j}{\partial \beta_P}\Big]
+$, we can see that the left hand term will evaluate to 0 whenever $\beta_i \neq \beta_P$, and likewise the right hand is 0 whenever $\beta_j \neq \beta_P$. Therefore:
+
+$$ \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
 
 \begin{bmatrix}
- \frac{\partial}{\partial \beta_1} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)  \\
- \frac{\partial}{\partial \beta_2} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)   \\
-  \vdots \\
-  \frac{\partial}{\partial \beta_N} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j  \Big)  
-\end{bmatrix}
+\sum_{j=1}^p \frac{\partial \beta_1}{\partial \beta_1} A_{1j}\beta_j + \sum_{i=1}^p \beta_i \frac{\partial A_{i1}\beta_1}{\partial \beta_1}\\
+\sum_{j=1}^p \frac{\partial \beta_2}{\partial \beta_2} A_{2j}\beta_j + \sum_{i=1}^p \beta_i \frac{\partial A_{i2}\beta_2}{\partial \beta_2}\\
 
-= \begin{bmatrix}
- \frac{\partial}{\partial \beta_1} \Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j ) +0 \dots +0   \\
- 0 + \frac{\partial}{\partial \beta_2} \Big(c_2\beta_2\Big)  \dots +0    \\
-  \vdots \\
- 0 + 0 \dots  \frac{\partial}{\partial \beta_N} \Big(c_N\beta_N\Big)  
-\end{bmatrix}
+ \vdots \\
+\sum_{j=1}^p \frac{\partial \beta_P}{\partial \beta_P} A_{Pj}\beta_j + \sum_{i=1}^p \beta_i \frac{\partial A_{iP}\beta_P}{\partial \beta_P}\\
 
-= \begin{bmatrix}
- c_1\beta_1  \\
- c_2\beta_2 \\
-  \vdots \\
- c_N\beta_N 
 \end{bmatrix}
+$$
 
+Now if we finally take the derivative...
+
+$$
+\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+
+\begin{bmatrix}
+\sum_{j=1}^p A_{1j}\beta_j + \sum_{i=1}^p \beta_i A_{i1} \\
+\sum_{j=1}^p A_{2j}\beta_j + \sum_{i=1}^p \beta_i A_{i2}\\
+
+ \vdots \\
+\sum_{j=1}^p A_{Pj}\beta_j + \sum_{i=1}^p \beta_i A_{iP}\\
+
+\end{bmatrix}
 $$
 
 
+Okay... Now pack up (think above needs to be condensed)
+
+$$
+\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+A\beta  +\begin{bmatrix}
+ \sum_{i=1}^p \beta_i A_{i1} \\
+\sum_{i=1}^p \beta_i A_{i2}\\
+
+ \vdots \\
+ \sum_{i=1}^p \beta_i A_{iP}\\
+
+\end{bmatrix}
+$$
 
 
+$$
+\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
+A\beta  +A^T\beta = (A+A^T)\beta
+$$
 
-
-
-
-
-
+Now sub this back in... Phew
 
 $$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + (X^TX + (X^TX)^T)\beta $$
 
