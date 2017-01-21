@@ -50,7 +50,8 @@ $$
 \end{bmatrix}
 $$
 
-So you can think about matrix notation as just getting rid of pesky ```for i in range(): ``` loops (better known as $ \sum$ signs).
+So you can kind of think about matrix notation as just getting rid of pesky ```for i in range(): ``` loops (better known as $ \sum$ signs).
+This is not completely equivalent...
 
 **Second**, what is the **residual sum of squares**? This is just the squared difference between all of our estimates of $\mathbf{y_i}$,
  and the actual values of $\mathbf{y_i}$. See the graph below for a visual explanation (<span style="color:red">not done just yet</span>)!
@@ -120,13 +121,21 @@ $c^T$, as $y^TX$ is $1\times N N\times P$. Similarly, $X^TX$ is a $P\times P$ ma
 $$ \frac{\partial RSS}{\partial \beta} = -2\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
 
 Here, we are actually in a position to cheat, and [look up](https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities) the
-answers (check out the 1st and 3rd rows below the solid line, replacing $x$ for $\beta$ and $a$ for $c$). However, we don't need to cheat! Let's
+answers (check out the 1st and 3rd rows below the solid line, replacing $x$ for $\beta$ and $a$ for $c$). We could directly use the identities and **skip the next part**:
+
+$$ \frac{\partial}{\partial \beta} \Big(c^T\beta \Big)  = c $$
+
+$$ \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) = (A+A^T)\beta $$
+ 
+
+### Optional section to derive matrix calculus identities:
+
+However, we don't need to cheat! Let's
 start with $\frac{\partial}{\partial \beta} \Big(c^T\beta \Big)$, which it just the dot product between $c$ and $\beta$. 
 
 $$\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) =  \frac{\partial}{\partial \beta} \Big(\sum_i^N c_i\beta_i \Big)$$
 
 We want to know how this dot product changes as $\beta$ is altered. We can write this as a vector of partial derivatives:
-<span style="color:red"> ** Needs to be clearer </span>
 
 $$
 \frac{\partial}{\partial \beta} \Big(\sum_i^P c_i\beta_i \Big) = 
@@ -174,7 +183,7 @@ $$ \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
 \frac{\partial RSS}{\partial \beta}\Big(\sum_{i=1}^p\sum_{j=1}^p\beta_i A_{ij}\beta_j \Big)$$
 
 However, now we have a quadratic form, unlike our linear form from before with $c^T$. 
-But the derivative is a linear operator, we can move it inside the summation signs...
+But the derivative is a linear operator, so we can move it inside the summation signs...
 
 $$\frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
  \sum_{i=1}^p\sum_{j=1}^p \frac{\partial RSS}{\partial \beta} \beta_i A_{ij}\beta_j $$
@@ -239,7 +248,8 @@ $$
 $$
 
 
-Okay... Now pack up (think above needs to be condensed)
+Okay... Now we just need to convert back to matrix notation! First, the left-hand side sum is just the standard form of
+a matrix vector product, each entry in $\beta$ sums over the corresponding column of $A$:
 
 $$
 \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
@@ -253,13 +263,18 @@ A\beta  +\begin{bmatrix}
 \end{bmatrix}
 $$
 
+For the right-hand side sum, each entry of $\beta$ instead is summing over the rows of $A$. This is equivalent to transposing the matrix
+before taking the 
+matrix vector product:
 
 $$
 \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) =
 A\beta  +A^T\beta = (A+A^T)\beta
 $$
 
-Now sub this back in... Phew
+### End of optional section!
+ 
+Now we can substitute these identities into our original equation... Phew
 
 $$\frac{\partial RSS}{\partial \beta} = 0 - 2X^Ty + (X^TX + (X^TX)^T)\beta $$
 
