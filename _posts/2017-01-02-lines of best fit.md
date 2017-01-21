@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basics 1. Lines of best fit!
+title: Basics 1&#58 Lines of best fit!
 subtitle: Plotting lines of best-fit using python
 ---
 
@@ -8,13 +8,12 @@ subtitle: Plotting lines of best-fit using python
 
 Fitting a line of best-fit **is an example of Machine Learning**. It is also considered by many to be a basic thing 
 that you can just "do" when plotting data - a problem to be laid firmly at Excel's feet. It's not basic or simple, and shouldn't be
-considered so. However, as a first year graduate student, newly obssesed with python and late to make figures for a lab presentation,
- this didn't matter to me. I just wanted to have graphs with nice lines...
+considered so.
  
-So this first post is for the me of four years ago, with two aims:
+That said, this first post has two basic aims:
 
-1. Simply give some simple code to make some lines
-2. Spark an interest and understanding of why **aim 1.** just isn't a good idea
+1. Give some simple code to make some lines
+2. Spark an interest and understanding of why **aim 1** in isolation isn't a particularly good idea
 
 ## Give me a straight line already:
 
@@ -62,7 +61,9 @@ $$ (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y} = \mathbf{\beta} $$
 
 Wait, what? Don't worry, we'll go through how we get to this "neat expression" in the **next post**, but more pressingly, why has $\mathbf{x}$ changed to $\mathbf{X}$ and what is $\mathbf{\beta}$?
 
-$\mathbf{\beta}$ first: this is now a vector (think list), and it looks like $[w, b]^T$ (it's a column vector, hence the $^T$). Therefore $\mathbf{\beta}$[0] will give you your x-weight, $w$, and $\mathbf{\beta}$[1] your bias, $b$. Second, $\mathbf{X}$ is a matrix (think array), with two columns: the orginal $\mathbf{x}$ vector, which has now also been augmented by an equally long column of ones, in order to fit the $b$ parameter.
+**First**, $\mathbf{\beta}$ : this is now a vector (think list), and it looks like $[w, b]^T$ - it's a column vector, hence the $^T$. Therefore $\mathbf{\beta}$[0] will give you your x-weight, $w$, and $\mathbf{\beta}$[1] your bias, $b$.
+ 
+**Second**, $\mathbf{X}$ is a matrix (think array), with two columns: the orginal $\mathbf{x}$ vector, which has now also been augmented by an equally long column of ones, in order to fit the $b$ parameter.
 
 ## Let's plug this into our function already!
 
@@ -202,4 +203,5 @@ plt.plot(x_line,y_line, 'r--')
 ```
 ![line with polyfit](/blog_assets/1_data_curve_numpy.png)
 
-
+p.s. It's probably worth writing that in practice, people don't actually invert $X^TX$ so directly. Instead, you should
+use things like np.linalg.lstsq().
