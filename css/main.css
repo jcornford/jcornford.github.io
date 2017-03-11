@@ -122,19 +122,17 @@ img {
 }
 
 .navbar-custom .navbar-brand-logo {
-  padding-top: 0;
+  padding-top: 8px;
   -webkit-transition: padding .5s ease-in-out;
   -moz-transition: padding .5s ease-in-out;
-  transition: padding .5s ease-in-out;  
+  transition: padding .5s ease-in-out;
+
 }
 .navbar-custom .navbar-brand-logo img {
   height: 32px;
   -webkit-transition: height .5s ease-in-out;
   -moz-transition: height .5s ease-in-out;
   transition: height .5s ease-in-out;
-}
-.navbar-custom.top-nav-short .navbar-brand-logo {
-  padding-top: 5px;
 }
 .navbar-custom.top-nav-short .navbar-brand-logo img {
   height: 32px;
@@ -685,3 +683,4 @@ td.gutter {
 #social-share-section {
   margin-bottom: 30px;
 }
+
