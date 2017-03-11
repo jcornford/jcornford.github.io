@@ -254,7 +254,7 @@ img {
 /* --- Footer --- */
 
 footer {
-  padding: 30px 0;
+  padding: 0px 0;
   background: #F5F5F5;
   border-top: 1px #EAEAEA solid;
   margin-top: 50px;
@@ -286,7 +286,7 @@ footer .image-by {
 
 @media only screen and (min-width: 768px) {
   footer {
-    padding: 50px 0;
+    padding: 0px 0;
   }
   footer .footer-links {
     font-size: 18px;
