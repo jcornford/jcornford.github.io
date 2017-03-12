@@ -5,7 +5,7 @@ let slider4 = document.getElementById('slider4');
 
 const v0      = -75;  // mV
 const tstop   = 1000; // ms 
-
+const dt      = 0.25  // ms
 
 slider1.onchange = update;
 slider2.onchange = update;
@@ -27,9 +27,14 @@ var y_scale = d3.scaleLinear().range([height, 0]);//.domain([v0, 40]);
 
 // define the line
 var v_line = d3.line()
-	.x(function (d, i, data) { return x_scale(d[0]); }) // d is data point (values), i is iterator position
-	.y(function (d, i, data) { return y_scale(d[1]); });
-	
+	.x(function (d,i) { 
+	//console.log('xy is '+ i*dt+','+d);
+	//console.log('Plotting X value for data point: ' + data[0][i] + ' using index: ' + i + ' to be at: ' + x_scale(data[0][i]) + ' using our xScale.');
+	return x_scale(i*dt); }) // d is data point (values), i is iterator position
+	.y(function (d,i) { 
+	//console.log('Plotting Y value for data point: ' + data[1][i] + ' using index: ' + i + ' to be at: ' + y_scale(data[1][i]) + ' using our yScale.');
+		return y_scale(d); });
+//console.log(v_line);	
 function init() {
 	let a = slider1.value;
 	let b = slider2.value;
@@ -46,17 +51,18 @@ function init() {
             	  "translate(" + margin.left + "," + margin.top + ")");
 	
 	const values = calculate(a, b, c, d);
+
 	console.log(values);
 	// Scale the range of the data - we want a pad here 
 	const pad_y = 25;
-	// dont get this syntax below
-  	x_scale.domain(d3.extent(values[0], function(d) { return d; }));
-  	y_scale.domain([0-pad_y, d3.max(values[1], function(d) { return d; })+pad_y]);
+  	//x_scale.domain(d3.extent(values, function(d) {return d; }));
+  	x_scale.domain([0, values.length*dt]);
+  	y_scale.domain([0-pad_y, d3.max(values, function(d) { return d; })+pad_y]);
 
 
 	// console.log(values);
 	svg.append("path") //  in svg can append elemetns such as circle and rectagle, path is any wiht shape defined with d
-		.data([values])
+		.datum(values)
 		.attr("class", "v_line")
 		.attr("d", v_line);
 
@@ -114,7 +120,7 @@ function calculate(a, b, c, d) {
 	// calculate voltage values
 	const v_values = [];
 	for (let i = 1; i < tstop + 1; i++) {
-		v_values.push(Math.random() * -10);
+		//v_values.push(Math.random() * -10);
 		v = 20
 		if (v < vthresh ){
 			var k = klow 
@@ -122,11 +128,9 @@ function calculate(a, b, c, d) {
 			k = khigh
 		}
 		
-		if (i < 2){
-			console.log(k)
-		}
 	}
-	return [t,i_stim,v_values];
+	// in the end did not return all three as array as can't work it!
+	return i_stim;
 }
 
 init();
