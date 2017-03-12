@@ -17,7 +17,7 @@ Where $\lambda$ is a positive valued scalar that controls the amount of penalisa
 
 Note we are not including the intercept term $\beta_0$ in the cost function, and, further on, I will assume input matrix $X$ has been centered around
 0, so we no longer need to augment it with a column of ones in order to incorporate $\beta_0$ in our matrix notation. Also, it is equally important to appreciate
- that the $\beta$ vector solution will be dependent on the units, or scaling, of the inputs - so the inputs should be standardised  before solving for $\beta$.
+ that the $\beta$ vector solution will be dependent on the units, or scaling, of the inputs - so the different inputs (or columns of $X$) should be standardised  before solving for $\beta$.
 
 ## Closed form solution
 
@@ -26,3 +26,5 @@ Note we are not including the intercept term $\beta_0$ in the cost function, and
 ## Effect on variance of beta
 
 ## Increasing Eigenvalues/determinant
+
+## Pseudo inverse link

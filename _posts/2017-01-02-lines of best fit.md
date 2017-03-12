@@ -55,15 +55,15 @@ $\mathbf{y}$ is a $N$ dimensional vector of y values<br>
 $w$ is a scalar that weights the $x$ value <br>
 $b$ is a scalar offset or bias (intercept)
 
-In essence, the two parameters you are fitting, $w$ & $b$, take a $x$ value, and predict what the corresponding $y$ value should be. How does np.polyfit do this? Well, the fitting procedure that np.polyfit uses is least squares, to which the solution, happily, has a neat closed form expression:
+In essence, the two parameters you are fitting, $w$ & $b$, take an $x$ value, and predict what the corresponding $y$ value should be. How does np.polyfit do this? Well, the fitting procedure that np.polyfit uses is least squares, to which the solution, happily, has a neat closed form expression:
 
 $$ (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y} = \mathbf{\beta} $$
 
-Wait, what? Don't worry, we'll go through how we get to this "neat expression" in the **next post**, but more pressingly, why has $\mathbf{x}$ changed to $\mathbf{X}$ and what is $\mathbf{\beta}$?
+Wait, what? Don't worry, we'll go through how we get to this "neat expression" in the [next post](../2017-01-07-least-squares-for-dummies), but more pressingly, why has $\mathbf{x}$ changed to $\mathbf{X}$ and what is $\mathbf{\beta}$?
 
-**First**, $\mathbf{\beta}$ : this is now a vector (think list), and it looks like $[w, b]^T$ - it's a column vector, hence the $^T$. Therefore $\mathbf{\beta}$[0] will give you your x-weight, $w$, and $\mathbf{\beta}$[1] your bias, $b$.
+**First**, $\mathbf{\beta}$ : this is now a vector (similar to a list), and it looks like $[w, b]^T$ - it's a column vector, hence the $^T$. Therefore $\mathbf{\beta}$[0] will give you your x-weight, $w$, and $\mathbf{\beta}$[1] your bias, $b$.
  
-**Second**, $\mathbf{X}$ is a matrix (think array), with two columns: the orginal $\mathbf{x}$ vector, which has now also been augmented by an equally long column of ones, in order to fit the $b$ parameter.
+**Second**, $\mathbf{X}$ is a matrix (similar to an array), with two columns: the orginal $\mathbf{x}$ vector, which has now also been augmented by an equally long column of ones that are used to fit the $b$ parameter.
 
 ## Let's plug this into our function already!
 
@@ -94,7 +94,7 @@ Okay, so that's all good, but what if you want a curvey line of best fit, to joi
 
 ## Give me a line that goes nicely through my points:
 **Sigh**... I'm a devoted member of the club of "your-line-reflects-your-hypothesis-on-the-data-generating-process", i.e.
- **don't** just aim for the line to go through all your datapoints (like the default **abomination in excel**) unless you think the underlying relationship 
+ **don't** just aim for the line to go through all your datapoints unless you think the underlying relationship 
  between x and y is truely the nature of the function that describes your line. If in doubt use a straight line, or let the datapoints speak for themselves.
  
 However, if you insist, we can just dial up and down the polynomial degree argument in polyfit...:
@@ -161,7 +161,7 @@ a concise way of writing $ \sum_{i}^{n}y_i = \sum_{i}^{n}w_0x_i^0 + w_1x_i^1 + .
 
 
 ## Okay, well know we know this, we don't need np.polyfit!
-- note the *cool* use of a [**closure**](http://www.learnpython.org/en/Closures), to replicate the np.poly1d() call
+- note the *pretty cool* use of a [**closure**](http://www.learnpython.org/en/Closures), to replicate the np.poly1d() call functionality
 
 ```python
 def give_me_a_line_like_excel_without_polyfit(x,y, deg = 8):
