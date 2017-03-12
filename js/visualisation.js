@@ -3,44 +3,58 @@ let slider2 = document.getElementById('slider2');
 let slider3 = document.getElementById('slider3');
 let slider4 = document.getElementById('slider4');
 
-const v0      = -70.0;
-const tstop   = 1000;
+const v0      = -75;  // mV
+const tstop   = 1000; // ms 
+
 
 slider1.onchange = update;
 slider2.onchange = update;
 slider3.onchange = update;
 slider4.onchange = update;
 
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 20, bottom: 30, left: 50}
+var width  = 600; // this is pixels
+var height = 400;
 
-	var width  = 600; // this is pixels
-	var height = 400;
-	var x = d3.scaleLinear().range([0,width]).domain([0, tstop]); // range is the pixels, domain is the values the pixels correspond
-	var y = d3.scaleLinear().range([height, 0]).domain([100, 0]);
+// set the ranges and scale to the range of the data!
+// the scale is normmally split off..
+//x.domain(d3.extent(data, function(d) { return d.date; }));
+// y.domain([0, d3.max(data, function(d) { return d.close; })]);
 
+var x_scale = d3.scaleLinear().range([0,width]);//.domain([0, tstop]); // range is the pixels, domain is the values the pixels correspond
+var y_scale = d3.scaleLinear().range([height, 0]);//.domain([v0, 40]);
 
-	var v_line = d3.line()
-		.x(function (d, i, data) { return x(i); }) // d is data point (values), i is iterator position
-		.y(function (d, i, data) { return y(d); });
+// define the line
+var v_line = d3.line()
+	.x(function (d, i, data) { return x_scale(d[0]); }) // d is data point (values), i is iterator position
+	.y(function (d, i, data) { return y_scale(d[1]); });
 	
-
 function init() {
 	let a = slider1.value;
 	let b = slider2.value;
 	let c = slider3.value;
 	let d = slider4.value;
-	console.log("testing");
+	console.log("init");
 
 	var svg = d3.select("#plot")
 		.append("svg")
-			.attr("width", width)
-			.attr("height", height)
-		.append("g");
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+			.attr("transform",
+            	  "translate(" + margin.left + "," + margin.top + ")");
 	
-
 	const values = calculate(a, b, c, d);
+	console.log(values);
+	// Scale the range of the data - we want a pad here 
+	const pad_y = 25;
+	// dont get this syntax below
+  	x_scale.domain(d3.extent(values[0], function(d) { return d; }));
+  	y_scale.domain([0-pad_y, d3.max(values[1], function(d) { return d; })+pad_y]);
+
 
 	// console.log(values);
-
 	svg.append("path") //  in svg can append elemetns such as circle and rectagle, path is any wiht shape defined with d
 		.data([values])
 		.attr("class", "v_line")
@@ -48,27 +62,71 @@ function init() {
 
 	svg.append("g")
 		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x));
+		.call(d3.axisBottom(x_scale));
 
 	svg.append("g")
-		.call(d3.axisLeft(y));
+		.call(d3.axisLeft(y_scale));
 }
 
 function update() {
+	let a = slider1.value;
+	let b = slider2.value;
+	let c = slider3.value;
+	let d = slider4.value;
 	var svg = d3.select("#plot").transition();
 	svg.select(".v_line")
 		.duration(700)
-		.attr("d", v_line(calculate(0,0,0,0)));
-		
-
+		.attr("d", v_line(calculate(a,b,c,d)));
 }
 
 function calculate(a, b, c, d) {
-	const values = [];
-	for (let i = 1; i < tstop + 1; i++) {
-		values.push(Math.random() * 100);
+
+	const klow    = 1.7   // nS/mV
+	const khigh   = 14    // nS/mV
+	const vthresh = -45   // mV
+	const vpeak   = 20    // mV
+	const dt      = 0.25  // ms
+	const Cm      = 90    // membrane capacitance
+	const ishift  = 0
+	
+	var u = v0*b; // v0 and tstop are still in global scope - bit shit
+	var v = v0;
+
+	// make time array
+	const t = [];
+	for (let i = 0; i < tstop+dt; i = i+dt){
+		t.push(i);
 	}
-	return values;
+	//console.log(t.length);
+	//console.log(t[t.length-1]);
+
+	// make the current injection stim
+	const i_stim = [];
+	for (let i = 0; i < t.length; i++ ){
+		if (t[i] > 200 && t[i]<800) {
+			i_stim.push(300) // this should be slider as well
+		} else {
+			i_stim.push(0)
+		}
+	}
+	//console.log(i_stim.length);
+
+	// calculate voltage values
+	const v_values = [];
+	for (let i = 1; i < tstop + 1; i++) {
+		v_values.push(Math.random() * -10);
+		v = 20
+		if (v < vthresh ){
+			var k = klow 
+		} else {
+			k = khigh
+		}
+		
+		if (i < 2){
+			console.log(k)
+		}
+	}
+	return [t,i_stim,v_values];
 }
 
 init();
