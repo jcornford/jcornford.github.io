@@ -36,10 +36,10 @@ var v_line = d3.line()
 		return y_scale(d); });
 //console.log(v_line);	
 function init() {
-	let a = slider1.value;
-	let b = slider2.value;
-	let c = slider3.value;
-	let d = slider4.value;
+	let a = parseFloat(slider1.value);
+	let b = parseFloat(slider2.value);
+	let c = parseFloat(slider3.value);
+	let d = parseFloat(slider4.value);
 	console.log("init");
 
 	var svg = d3.select("#plot")
@@ -76,10 +76,10 @@ function init() {
 }
 
 function update() {
-	let a = slider1.value;
-	let b = slider2.value;
-	let c = slider3.value;
-	let d = slider4.value;
+	let a = parseFloat(slider1.value);
+	let b = parseFloat(slider2.value);
+	let c = parseFloat(slider3.value);
+	let d = parseFloat(slider4.value);
 	var svg = d3.select("#plot").transition();
 	svg.select(".v_line")
 		.duration(700)
@@ -87,10 +87,11 @@ function update() {
 }
 
 function calculate(a, b, c, d) {
-	a = 0.1
-	b = 0.2
-	c = -65.0
-	d = 2.0
+	//a = 0.1
+	//b = 0.2
+	//c = -65.0
+	//d = 2.0
+	console.log(a+' ,' +b+', ' +c +',' +d);
 	const klow    = 1.7   // nS/mV
 	const khigh   = 14    // nS/mV
 	const vthresh = -45   // mV
