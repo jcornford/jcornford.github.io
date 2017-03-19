@@ -2,7 +2,7 @@
 layout: default
 title: Jonathan Cornford's Website
 ---
-<img src="img/anouk_croppedv2.jpeg">
+<img src="img/path_cropped.jpg">
 
 ## Welcome to my home page!
 I'm Jonathan, a final year neuroscience PhD student at Queen Square, UCL. London. I'm interested in how single neurons work, and machine learning.
