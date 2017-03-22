@@ -14,11 +14,10 @@ After a few blog posts, eventually I intend to have a play with using **spiking*
 My background is Biology, specifically Physiological Sciences (or Medicine without the troublesome people), and I found when reading articles on machine learning
  and data-science that quite often the reader is assumed to have done Physics or Engineering. Alternatively, things might be laser-focused on the concepts
   or implementation details, which can be really great, e.g. [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/), but I often
- wished for more details, but again, without assuming prior familiarity all of the maths ([Elements of Statisitical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)
- is a pretty big step up :] ). 
+ wished for more details, but again, without assuming prior familiarity all of the maths - [Elements of Statisitical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)
+ is a pretty big step up :] ( half of page 45, lines 3.3 to 3.6, is the entire focus of [posts 2](2017-01-07-least-squares-for-dummies/) and [2a](2017-01-08-scalar-by-vector-derivatives-for-least-squares)). 
  
  
-So, this [blog](/blog) is intended to cross that bridge, primarily aimed at Biologists, who have done a limited amount of maths, but have experience coding in python.
-I'll try to use coding to inform the maths, as maths really started making more sense to me when thinking in terms of code. 
+So, this [blog](/blog) is intended to cross that bridge, filling in those details. I'll try to use coding to inform the maths, as the maths really started making more sense to me when thinking in terms of code. 
 
 <a href="{{ blog | prepend: site.baseurl }}">
