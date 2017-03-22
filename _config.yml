@@ -23,7 +23,7 @@ description: Just attempting to get on the internet bandwagon!
 
 # List of links in the navigation bar
 navbar-links:
-  Spiking Neuron Model : "Izhikevich_model"
+  Spiking Neuron Models : "Izhikevich_model"
   Blog    : "blog"
   About Me: "aboutme"
   Github: "http://github.com/jcornford"

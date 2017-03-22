@@ -4,7 +4,7 @@ title: Basics 2a&#58 Scalar-by-vector derivatives
 subtitle: The vector calculus needed for deriving the least squares solution
 ---
 
-Here we are taking a break from the last [post](../2017-01-07-least-squares-for-dummies) and going to go through, step by step, the solution to:
+Here we are taking a break from the last [post](../2017-02-07-least-squares-for-dummies) and going to go through, step by step, the solution to:
 
 $$ \frac{\partial RSS}{\partial \beta} = -2\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
 

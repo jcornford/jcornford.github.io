@@ -123,7 +123,7 @@ $c^T$, as $y^TX$ is $1\times N N\times P$. Similarly, $X^TX$ is a $P\times P$ ma
 $$ \frac{\partial RSS}{\partial \beta} = -2\frac{\partial}{\partial \beta} \Big(c^T\beta \Big) + \frac{\partial}{\partial \beta} \Big(\beta^TA\beta \Big) $$
 
 Here, we are actually in a position to cheat, and [look up](https://en.wikipedia.org/wiki/Matrix_calculus#Scalar-by-vector_identities) the
-answers (check out the 1st and 3rd rows below the solid line, replacing $x$ for $\beta$ and $a$ for $c$). [Or you could read this next post to get there step by step!](../2017-01-08-scalar-by-vector-derivatives-for-least-squares/) (This
+answers (check out the 1st and 3rd rows below the solid line, replacing $x$ for $\beta$ and $a$ for $c$). [Or you could read this next post to get there step by step!](../2017-02-08-scalar-by-vector-derivatives-for-least-squares/) (This
  page was getting way to long so I split it off). Either way, cheating or not, we get the following identities:
 
 
