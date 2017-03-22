@@ -32,7 +32,7 @@ and then jump to just before the end of the [post 2](..\2017-02-08-least-squares
 
 $$\frac{\partial PRSS_{l_2}}{\partial \beta} = -2X^T(y - X\beta) + \lambda \frac{\partial\beta^T\beta}{\partial \beta} $$
 
-To take the derivative of $\beta^T\beta$, with respect to a vector of partial derivative operators $\partial\beta$, we can quickly drop in and out of summation notation:
+To take the derivative of $\beta^T\beta$, with respect to a vector of partial derivatives $\partial\beta$, we can quickly drop in and out of summation notation:
 
 $$
 \frac{\partial}{\partial \beta} \Big(\sum_i^P \beta_i^2 \Big) = 
@@ -105,14 +105,14 @@ Adding the vector of zeros to the end of the original $y$ vector, and a $p\times
   getting us back to $PRSS_{l_2} = (y- X\beta)^T(y-X\beta) + \lambda \beta^T\beta $ from the top of the page.
   
 Thinking about ridge regression in this way is cool. We are often worried (as it is often the case!) about our design/observation matrix $X$ being 
-collinear, with linearly dependent columns, which can also be thought as parameters containing duplicate information. In contrast, the columns
+collinear, with linearly dependent columns, which can also be thought as data containing duplicate information. In contrast, the columns
 of an identity matrix are supremely linearly independent, being orthogonal to each other. Therefore, by adding a scaled (by $\lambda$)
 identity matrix to our dataset, we are forcing the columns to be more independent of each other, to contain different information. In cases of singular
-matrices, with true linear dependence between columns, this collinearity will immediately disappear and the matrix will become invertible. 
-For non-singular, but under-determined matrices, adding the ridge penalty will improve the numerical stability of their inversion.
-Note this "information" that we are adding certainly has no bearing on the relationship between $y$ and $X\beta$ though!
+$X$ matrices, with true linear dependence between columns, $X^TX$ cannot be inverted. By adding $\lambda I$, this collinearity will immediately disappear and the matrix will become invertible. 
+For non-singular, but under-determined matrices, adding the ridge penalty will improve the numerical conditioning of $X^TX$'s inversion, improving the stability of $\beta$'s estimation.
+Note this "information" that we are adding certainly has no bearing on the relationship between $y$ and $X\beta$ though! - we are shrinking the size of all of the $\beta$'s to zero.
   
-  Do we go through geometric interpretation?
+*Do we go through geometric interpretation?*
 
 ## Effect on variance of beta
 
