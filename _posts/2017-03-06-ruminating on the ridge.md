@@ -32,7 +32,35 @@ and then jump to just before the end of the [post 2](..\2017-02-08-least-squares
 
 $$\frac{\partial PRSS_{l_2}}{\partial \beta} = -2X^T(y - X\beta) + \lambda \frac{\partial\beta^T\beta}{\partial \beta} $$
 
-*go through getting this via summation notation...! (an easy one)*
+To take the derivative of $\beta^T\beta$, with respect to a vector of partial derivative operators $\partial\beta$, we can quickly drop in and out of summation notation:
+
+$$
+\frac{\partial}{\partial \beta} \Big(\sum_i^P \beta_i^2 \Big) = 
+
+\begin{bmatrix}
+ \frac{\partial}{\partial \beta_1} \Big(\sum_i^P \beta_i^2 \Big)  \\
+ \frac{\partial}{\partial \beta_2} \Big(\sum_i^P \beta_i^2 \Big)   \\
+  \vdots \\
+  \frac{\partial}{\partial \beta_P} \Big(\sum_i^P \beta_i^2\Big)  
+\end{bmatrix}
+
+= \begin{bmatrix}
+ \frac{\partial}{\partial \beta_1} \beta_1^2 +0 \dots +0   \\
+ 0 + \frac{\partial}{\partial \beta_2} \beta_2^2  \dots +0    \\
+  \vdots \\
+ 0 + 0 \dots  \frac{\partial}{\partial \beta_P} \beta_P^2
+\end{bmatrix}
+
+= \begin{bmatrix}
+  2\beta_1 \\
+  2\beta_2 \\
+  \vdots \\
+  2\beta_P
+    \end{bmatrix}
+
+= 2\beta
+    
+$$
 
 $$\frac{\partial PRSS_{l_2}}{\partial \beta} = -2X^T(y - X\beta) + 2 \lambda \beta $$
 
@@ -48,9 +76,43 @@ $$ X^Ty = (X^TX + \lambda I )\beta $$
 
 $$ (X^TX + \lambda I )^{-1}X^Ty = \beta $$
 
+Therefore, the effect of adding a squared $l_2$ norm to cost function we are choosing $\beta$ to minimise, is to add a a scalar
+quantity to the diagonal of the $X^TX$ cross product matrix. 
 
+## Augmented dataset formulation
+Alternatively, ridge regression can be formulated as though the original dataset has been augmented as below:
+ 
+$$
+PRSS_{l_2} = \big(
+  \begin{bmatrix}
+  y_{n\times1} \\
+  0_{p\times1}
+    \end{bmatrix} -
+   
+   \begin{bmatrix}
+   X_{n\times p} \\
+   \lambda I_{p\times p} 
+   \end{bmatrix}
+   
+   \beta_{p\times1}
+   
+   \big)^2
+    
+$$
 
-## Formulation as if another dataset added
+Adding the vector of zeros to the end of the original $y$ vector, and a $p\times p$ identity matrix to the bottom of $X$ is 
+ going to add terms of the following sort $(0-\lambda I\beta)^T(0-\lambda I\beta)$ to the RSS, which simplifies to adding $\lambda\beta^2$,
+  getting us back to $PRSS_{l_2} = (y- X\beta)^T(y-X\beta) + \lambda \beta^T\beta $ from the top of the page.
+  
+Thinking about ridge regression in this way is cool. We are often worried (as it is often the case!) about our design/observation matrix $X$ being 
+collinear, with linearly dependent columns, which can also be thought as parameters containing duplicate information. In contrast, the columns
+of an identity matrix are supremely linearly independent, being orthogonal to each other. Therefore, by adding a scaled (by $\lambda$)
+identity matrix to our dataset, we are forcing the columns to be more independent of each other, to contain different information. In cases of singular
+matrices, with true linear dependence between columns, this collinearity will immediately disappear and the matrix will become invertible. 
+For non-singular, but under-determined matrices, adding the ridge penalty will improve the numerical stability of their inversion.
+Note this "information" that we are adding certainly has no bearing on the relationship between $y$ and $X\beta$ though!
+  
+  Do we go through geometric interpretation?
 
 ## Effect on variance of beta
 
