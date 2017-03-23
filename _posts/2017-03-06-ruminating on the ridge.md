@@ -110,7 +110,12 @@ of an identity matrix are supremely linearly independent, being orthogonal to ea
 identity matrix to our dataset, we are forcing the columns to be more independent of each other, to contain different information. In cases of singular
 $X$ matrices, with true linear dependence between columns, $X^TX$ cannot be inverted. By adding $\lambda I$, this collinearity will immediately disappear and the matrix will become invertible. 
 For non-singular, but under-determined matrices, adding the ridge penalty will improve the numerical conditioning of $X^TX$'s inversion, improving the stability of $\beta$'s estimation.
-Note this "information" that we are adding certainly has no bearing on the relationship between $y$ and $X\beta$ though! - we are shrinking the size of all of the $\beta$'s to zero.
+
+Note the "information" that we are adding by appending the extra dataset may make us
+less able to determine the true relationship between $y$ and $X$! We are assuming that the sizes of the elements of
+ $\beta$ should be small, and explicitly shrinking the size of all of the $\beta$'s towards zero. As a consequence of
+ this shrinking, regularisation techniques, such as adding the ridge penalty, are referred to by the literature as 
+ *shrinkage* methods.
   
 *Do we go through geometric interpretation?*
 
