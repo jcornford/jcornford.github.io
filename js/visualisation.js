@@ -1,8 +1,9 @@
-let slider1 = document.getElementById('slider1');
-let slider2 = document.getElementById('slider2');
-let slider3 = document.getElementById('slider3');
-let slider4 = document.getElementById('slider4');
+var slider1 = document.getElementById('slider1');
+var slider2 = document.getElementById('slider2');
+var slider3 = document.getElementById('slider3');
+var slider4 = document.getElementById('slider4');
 
+console.log('testing');
 const v0      = -75;  // mV
 const tstop   = 1000; // ms 
 const dt      = 0.25  // ms
