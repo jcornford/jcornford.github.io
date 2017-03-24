@@ -31,9 +31,26 @@ the parameter "c" is used to set the maximum amplitude of the spike after which 
 <label><span>d</span><input type="range" id="slider4" class="slider" orient="vertical" min="0" max="10" step="0.5" value = "2.0" /></label>
 
 <form name="registrationForm">
-    <label> <span>A</span> </label>
-   <input type="range" name="ageInputName" id="ageInputId" value="24" min="1" max="100" oninput="ageOutputId.value = ageInputId.value" orient="vertical">
-   <output name="ageOutputName" id="ageOutputId">24</output>
+    <label> <span>A</span>
+    <input type="range" name="aInputName" id="aInputId" value="0.05" min="0" max="0.5" step="0.1" oninput="aOutputId.value = aInputId.value" orient="vertical">
+    <output name="aOutputName" id="aOutputId">24</output>
+    </label>
+
+    <label> <span>B</span>
+    <input type="range" name="bInputName" id="bInputId" value="0.2" min="-0.1" max="0.5" step="0.025" oninput="bOutputId.value = bInputId.value" orient="vertical">
+    <output name="bOutputName" id="bOutputId">24</output>
+    </label>
+
+    <label> <span>C</span>
+    <input type="range" name="cInputName" id="cInputId" value="-55.0" min="-75" max="-40" step="1" oninput="cOutputId.value = cInputId.value" orient="vertical">
+    <output name="cOutputName" id="cOutputId">24</output>
+    </label>
+
+    <label> <span>D</span>
+    <input type="range" name="dInputName" id="dInputId" value="2.0" min="0" max="10" step="0.5" oninput="dOutputId.value = dInputId.value" orient="vertical">
+    <output name="dOutputName" id="dOutputId">24</output>
+    </label>
+
 </form>
 
 <div id="plot"></div>
