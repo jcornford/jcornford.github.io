@@ -63,7 +63,7 @@ function init() {
   	//x_scale.domain(d3.extent(values, function(d) {return d; }));
   	x_scale.domain([0, values.length*dt]);
   	//y_scale.domain([0-pad_y, d3.max(values, function(d) { return d; })+pad_y]);
-  	
+
   	y_scale.domain([-80, getMaxOfArray(values)+10]);
 
 
@@ -87,9 +87,15 @@ function update() {
 	let c = parseFloat(slider3.value);
 	let d = parseFloat(slider4.value);
 	var svg = d3.select("#plot").transition();
+	var new_vals = v_line(calculate(a,b,c,d));
 	svg.select(".v_line")
 		.duration(700)
-		.attr("d", v_line(calculate(a,b,c,d)));
+		.attr("d",new_vals);
+
+	y_scale.domain([-80, getMaxOfArray(new_vals)+10]])
+	svg.select(".yaxis")
+                    .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
+                    .call(yAxis)
 }
 
 function calculate(a, b, c, d) {
