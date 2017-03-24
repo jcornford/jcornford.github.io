@@ -88,15 +88,19 @@ function update() {
 	let d = parseFloat(slider4.value);
 	var svg = d3.select("#plot").transition();
 	var new_vals = calculate(a,b,c,d);
+	
+	//y_scale.domain([-80, getMaxOfArray(new_vals)+10]);
+	//svg.select(".yaxis")
+    //                .transition().duration(1500) // this dont work
+    //                .call(d3.axisLeft(y_scale))
+
 	svg.select(".v_line")
 		.duration(700)
 		.attr("d", v_line(new_vals));
+
 	//console.log(new_vals)
-    console.log(getMaxOfArray(new_vals));
-	y_scale.domain([-80, getMaxOfArray(new_vals)+10]);
-	svg.select(".yaxis")
-                    .transition().duration(1500)  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
-                    .call(y_scale)
+    //console.log(getMaxOfArray(new_vals));
+
 }
 
 function calculate(a, b, c, d) {
