@@ -87,11 +87,12 @@ function update() {
 	let c = parseFloat(slider3.value);
 	let d = parseFloat(slider4.value);
 	var svg = d3.select("#plot").transition();
-	var new_vals = v_line(calculate(a,b,c,d));
+	var new_vals = calculate(a,b,c,d);
 	svg.select(".v_line")
 		.duration(700)
-		.attr("d",new_vals);
-
+		.attr("d", v_line(new_vals));
+	console.log(new_vals)
+    console.log(getMaxOfArray(new_vals))
 	y_scale.domain([-80, getMaxOfArray(new_vals)+10])
 	svg.select(".yaxis")
                     .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
