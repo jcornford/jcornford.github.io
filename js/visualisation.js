@@ -1,7 +1,7 @@
-var slider1 = document.getElementById('slider1');
-var slider2 = document.getElementById('slider2');
-var slider3 = document.getElementById('slider3');
-var slider4 = document.getElementById('slider4');
+var slider1 = document.getElementById('aInputId');
+var slider2 = document.getElementById('bInputId');
+var slider3 = document.getElementById('cInputId');
+var slider4 = document.getElementById('dInputId');
 
 console.log('testing');
 const v0      = -75;  // mV
