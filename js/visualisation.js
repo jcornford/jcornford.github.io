@@ -92,7 +92,7 @@ function update() {
 		.duration(700)
 		.attr("d",new_vals);
 
-	y_scale.domain([-80, getMaxOfArray(new_vals)+10]])
+	y_scale.domain([-80, getMaxOfArray(new_vals)+10])
 	svg.select(".yaxis")
                     .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
                     .call(yAxis)
