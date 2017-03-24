@@ -35,7 +35,11 @@ var v_line = d3.line()
 	.y(function (d,i) { 
 	//console.log('Plotting Y value for data point: ' + data[1][i] + ' using index: ' + i + ' to be at: ' + y_scale(data[1][i]) + ' using our yScale.');
 		return y_scale(d); });
-//console.log(v_line);	
+//console.log(v_line);
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+
 function init() {
 	let a = parseFloat(slider1.value);
 	let b = parseFloat(slider2.value);
@@ -53,13 +57,14 @@ function init() {
 	
 	const values = calculate(a, b, c, d);
 
-	//console.log(values);
+	console.log(values);
 	// Scale the range of the data - we want a pad here 
 	const pad_y = 25;
   	//x_scale.domain(d3.extent(values, function(d) {return d; }));
   	x_scale.domain([0, values.length*dt]);
   	//y_scale.domain([0-pad_y, d3.max(values, function(d) { return d; })+pad_y]);
-  	y_scale.domain([-80, 40]);
+  	
+  	y_scale.domain([-80, getMaxOfArray(values)+10]);
 
 
 	// console.log(values);
