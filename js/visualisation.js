@@ -57,7 +57,7 @@ function init() {
 	
 	const values = calculate(a, b, c, d);
 
-	console.log(values);
+	//console.log(values);
 	// Scale the range of the data - we want a pad here 
 	const pad_y = 25;
   	//x_scale.domain(d3.extent(values, function(d) {return d; }));
@@ -91,12 +91,12 @@ function update() {
 	svg.select(".v_line")
 		.duration(700)
 		.attr("d", v_line(new_vals));
-	console.log(new_vals)
-    console.log(getMaxOfArray(new_vals))
-	y_scale.domain([-80, getMaxOfArray(new_vals)+10])
+	//console.log(new_vals)
+    console.log(getMaxOfArray(new_vals));
+	y_scale.domain([-80, getMaxOfArray(new_vals)+10]);
 	svg.select(".yaxis")
-                    .transition().duration(1500).ease("sin-in-out")  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
-                    .call(yAxis)
+                    .transition().duration(1500)  // https://github.com/mbostock/d3/wiki/Transitions#wiki-d3_ease
+                    .call(y_scale)
 }
 
 function calculate(a, b, c, d) {
