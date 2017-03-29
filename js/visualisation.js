@@ -29,10 +29,10 @@ function getMaxOfArray(numArray) { // just use d3.max()
 //});
 
 
-let a = parseFloat(slider1.value);
-let b = parseFloat(slider2.value);
-let c = parseFloat(slider3.value);
-let d = parseFloat(slider4.value);
+var a = parseFloat(slider1.value);
+var b = parseFloat(slider2.value);
+var c = parseFloat(slider3.value);
+var d = parseFloat(slider4.value);
 
 var svg = d3.select("#plot").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -95,10 +95,10 @@ svg.append("g")
 
 
 function update() {
-    let a = parseFloat(slider1.value);
-    let b = parseFloat(slider2.value);
-    let c = parseFloat(slider3.value);
-    let d = parseFloat(slider4.value);
+    var a = parseFloat(slider1.value);
+    var b = parseFloat(slider2.value);
+    var c = parseFloat(slider3.value);
+    var d = parseFloat(slider4.value);
     var svg = d3.select("#plot").transition();
     var new_vals = calculate(a,b,c,d);
 
