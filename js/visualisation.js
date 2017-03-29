@@ -2,102 +2,128 @@ var slider1 = document.getElementById('aInputId');
 var slider2 = document.getElementById('bInputId');
 var slider3 = document.getElementById('cInputId');
 var slider4 = document.getElementById('dInputId');
-
-console.log('testing');
-const v0      = -75;  // mV
-const tstop   = 1000; // ms 
-const dt      = 0.25  // ms
+var sliderI = document.getElementById('iextInputId');
 
 slider1.onchange = update;
 slider2.onchange = update;
 slider3.onchange = update;
 slider4.onchange = update;
+sliderI.onchange = update;
+
+// sim parameters
+const v0      = -75;  // mV
+const tstop   = 1000; // ms 
+const dt      = 0.25  // ms
 
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 50}
 var width  = 600; // this is pixels
 var height = 300;
 
-// set the ranges and scale to the range of the data!
-// the scale is normmally split off..
-//x.domain(d3.extent(data, function(d) { return d.date; }));
-// y.domain([0, d3.max(data, function(d) { return d.close; })]);
-
-var x_scale = d3.scaleLinear().range([0,width]);//.domain([0, tstop]); // range is the pixels, domain is the values the pixels correspond
-var y_scale = d3.scaleLinear().range([height, 0]);//.domain([v0, 40]);
-
-// define the line
-var v_line = d3.line()
-	.x(function (d,i) { 
-	//console.log('xy is '+ i*dt+','+d);
-	//console.log('Plotting X value for data point: ' + data[0][i] + ' using index: ' + i + ' to be at: ' + x_scale(data[0][i]) + ' using our xScale.');
-	return x_scale(i*dt); }) // d is data point (values), i is iterator position
-	.y(function (d,i) { 
-	//console.log('Plotting Y value for data point: ' + data[1][i] + ' using index: ' + i + ' to be at: ' + y_scale(data[1][i]) + ' using our yScale.');
-		return y_scale(d); });
-//console.log(v_line);
-function getMaxOfArray(numArray) {
+function getMaxOfArray(numArray) { // just use d3.max()
   return Math.max.apply(null, numArray);
 }
 
-function init() {
-	let a = parseFloat(slider1.value);
-	let b = parseFloat(slider2.value);
-	let c = parseFloat(slider3.value);
-	let d = parseFloat(slider4.value);
-	console.log("init");
-
-	var svg = d3.select("#plot").append("svg")
-			.attr("width", width + margin.left + margin.right)
-			.attr("height", height + margin.top + margin.bottom)
-		    .append("g")
-			.attr("transform",
-            	  "translate(" + margin.left + "," + margin.top + ")");
-	
-	const values = calculate(a, b, c, d);
-
-	//console.log(values);
-	// Scale the range of the data - we want a pad here 
-	const pad_y = 25;
-  	//x_scale.domain(d3.extent(values, function(d) {return d; }));
-  	x_scale.domain([0, values.length*dt]);
-  	//y_scale.domain([0-pad_y, d3.max(values, function(d) { return d; })+pad_y]);
-
-  	y_scale.domain([-80, getMaxOfArray(values)+10]);
+//d3.max(dataset, function(d) {    //Returns 480
+//    return d[0];  //References first value in each sub-array
+//});
 
 
-	// console.log(values);
-	svg.append("path") //  in svg can append elemetns such as circle and rectagle, path is any wiht shape defined with d
-		.datum(values)
-		.attr("class", "v_line")
-		.attr("d", v_line);
+let a = parseFloat(slider1.value);
+let b = parseFloat(slider2.value);
+let c = parseFloat(slider3.value);
+let d = parseFloat(slider4.value);
 
-	svg.append("g")
-		.attr("transform", "translate(0," + height + ")")
-		.call(d3.axisBottom(x_scale));
+var svg = d3.select("#plot").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
 
-	svg.append("g")
-		.call(d3.axisLeft(y_scale));
-}
+var values = calculate(a, b, c, d);
+
+var x_scale = d3.scaleLinear()
+            .range( [0, width])    // output values (pixels
+            .domain([0,tstop]);    // input values
+
+var y_scale = d3.scaleLinear()
+                .range( [height, 0]) // smaller values produce larger output.. push elements down the page
+                .domain([d3.min(values)-15, d3.max(values)+10]);
+
+// define the line
+var v_line = d3.line()
+    .x(function (d,i) {
+        return x_scale(i*dt);
+    })
+    .y(function (d) {
+        return y_scale(d);
+    });
+
+console.log(d3.max(values))
+var pad_y = 25;
+var pad_x = 20;
+
+svg.append("path") //  in svg can append elemetns such as circle and rectagle, path is any wiht shape defined with d
+    //.data(values)
+    .attr("stroke", "black")
+    .attr("d", v_line(values))
+
+    .attr("class", "v_line");
+
+// sort out axis
+var yAxis = d3.axisLeft()
+    .scale(y_scale)
+    .ticks(5); // rough number
+var xAxis = d3.axisBottom()
+    .scale(x_scale)
+    .ticks(5);
+
+svg.append("g")
+        .attr("class", "xaxis")
+        .attr("transform", "translate(0," + height + ")")
+        //Note the use of translate (h), so the group’s top edge is set to h, the
+        .call(xAxis)
+    .append("text")
+        .text("Time (msec)");
+
+svg.append("g")
+    .attr("class", "yaxis")
+    .attr("transform", "translate(" + 0+ ",0)")
+    .call(yAxis)
+
 
 function update() {
-	let a = parseFloat(slider1.value);
-	let b = parseFloat(slider2.value);
-	let c = parseFloat(slider3.value);
-	let d = parseFloat(slider4.value);
-	var svg = d3.select("#plot").transition();
-	var new_vals = calculate(a,b,c,d);
-	
-	//y_scale.domain([-80, getMaxOfArray(new_vals)+10]);
-	//svg.select(".yaxis")
-    //                .transition().duration(1500) // this dont work
-    //                .call(d3.axisLeft(y_scale))
+    let a = parseFloat(slider1.value);
+    let b = parseFloat(slider2.value);
+    let c = parseFloat(slider3.value);
+    let d = parseFloat(slider4.value);
+    var svg = d3.select("#plot").transition();
+    var new_vals = calculate(a,b,c,d);
 
-	svg.select(".v_line")
-		.duration(700)
-		.attr("d", v_line(new_vals));
+    var t0 = svg.transition().duration(1750);
 
-	//console.log(new_vals)
+    y_scale.domain([d3.min(new_vals)-10, d3.max(new_vals)+10]);
+    yAxis.scale(y_scale)
+
+    t0.selectAll(".yaxis")
+        .call(yAxis);
+
+    console.log(d3.min(new_vals))
+    console.log(d3.max(new_vals))
+
+    svg.select(".v_line")
+        .transition()
+        //.delay(function(d,i){ // for inidivudial stiff
+        //return i*10
+        //})
+        .duration(1700)
+        .attr("d", v_line(new_vals));
+        //attr("fill", "hsl("+(Math.random()*360)+",100%,50%)")
+        // random color...
+
+
+    //console.log(new_vals)
     //console.log(getMaxOfArray(new_vals));
 
 }
@@ -107,7 +133,8 @@ function calculate(a, b, c, d) {
 	//b = 0.2
 	//c = -65.0
 	//d = 2.0
-	console.log(a+' ,' +b+', ' +c +',' +d);
+	var i_ext =  parseFloat(sliderI.value);
+	//console.log(a+' ,' +b+', ' +c +',' +d);
 	const klow    = 1.7   // nS/mV
 	const khigh   = 14    // nS/mV
 	const vthresh = -45   // mV
@@ -130,7 +157,7 @@ function calculate(a, b, c, d) {
 	const i_stim = [];
 	for (let i = 0; i < t.length; i++ ){
 		if (t[i] > 200 && t[i]<800) {
-			i_stim.push(5) // this should be slider as well
+			i_stim.push(i_ext)
 		} else {
 			i_stim.push(0);
 		}
@@ -167,4 +194,3 @@ function calculate(a, b, c, d) {
 	return v_values;
 }
 
-init();

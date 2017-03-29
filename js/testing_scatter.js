@@ -32,5 +32,25 @@ function init() {
                       [ 85,    21 ],
                       [ 220,   88 ]
                   ];
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", function(d) {
+        return d[0];
+       })
+       .attr("cy", function(d) {
+            return d[1];
+       })
+       .attr("r", 5);
 };
 init();
+
+//A scale’s input domain is the range of possible input data values.
+//A scale’s output range is the range of possible output values
+
+//Input! Domain!
+//Output! Range!
+//Input! Domain!
+//Output! Range!
