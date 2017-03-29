@@ -161,7 +161,7 @@ function calculate(a, b, c, d) {
 
 	// make the current injection stim
 	var i_stim = [];
-	for (let i = 0; i < t.length; i++ ){
+	for (var i = 0; i < t.length; i++ ){
 		if (t[i] > 200 && t[i]<800) {
 			i_stim.push(i_ext)
 		} else {
@@ -175,7 +175,7 @@ function calculate(a, b, c, d) {
 	var u_values = [];
 	var u = v0*b; // v0 and tstop are still in global scope - bit shit
 	var v = v0;
-	for (let i = 1; i < t.length; i++) {
+	for (var i = 1; i < t.length; i++) {
 		// not actually using the k thing as diff implementation
 		//if (v < vthresh ){
 		//	var k = klow;
