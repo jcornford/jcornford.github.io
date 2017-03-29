@@ -68,8 +68,8 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
     //.data(values)
     .attr("stroke", "black")
     .attr("d", v_line(values))
-    .attr("stroke-width", 2)
-
+    .attr("stroke-width", 1)
+    .attr("fill","none")
     .attr("class", "v_line");
 
 // sort out axis
