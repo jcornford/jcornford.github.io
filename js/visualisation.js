@@ -68,6 +68,7 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
     //.data(values)
     .attr("stroke", "black")
     .attr("d", v_line(values))
+    .attr("stroke-width", 2)
 
     .attr("class", "v_line");
 
@@ -134,7 +135,8 @@ function calculate(a, b, c, d) {
 	//c = -65.0
 	//d = 2.0
 	var i_ext =  parseFloat(sliderI.value);
-	//console.log(a+' ,' +b+', ' +c +',' +d);
+
+	console.log(i_ext);
 	const klow    = 1.7   // nS/mV
 	const khigh   = 14    // nS/mV
 	const vthresh = -45   // mV
