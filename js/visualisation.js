@@ -11,9 +11,9 @@ slider4.onchange = update;
 sliderI.onchange = update;
 
 // sim parameters
-const v0      = -75;  // mV
-const tstop   = 1000; // ms 
-const dt      = 0.25  // ms
+var v0      = -75;  // mV
+var tstop   = 1000; // ms
+var dt      = 0.25;  // ms
 
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 50}
@@ -68,7 +68,7 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
     //.data(values)
     .attr("stroke", "black")
     .attr("d", v_line(values))
-    .attr("stroke-width", 1)
+    .attr("stroke-width", 0.5)
     .attr("fill","none")
     .attr("class", "v_line");
 
@@ -135,28 +135,32 @@ function calculate(a, b, c, d) {
 	//c = -65.0
 	//d = 2.0
 	var i_ext =  parseFloat(sliderI.value);
+	// sim parameters
+    var v0      = -75;  // mV
+    var tstop   = 1000; // ms
+    var dt      = 0.25;  // ms
 
 	console.log(i_ext);
-	const klow    = 1.7   // nS/mV
-	const khigh   = 14    // nS/mV
-	const vthresh = -45   // mV
-	const vpeak   = 20    // mV
-	const dt      = 0.25  // ms
-	const Cm      = 90    // membrane capacitance
-	const ishift  = 0
+	var klow    = 1.7   // nS/mV
+	var khigh   = 14    // nS/mV
+	var vthresh = -45   // mV
+	var vpeak   = 20    // mV
+
+	var Cm      = 90    // membrane capacitance
+	var ishift  = 0
 	
 	
 
 	// make time array
-	const t = [];
-	for (let i = 0; i < tstop+dt; i = i+dt){
+	var t = [];
+	for (var i = 0; i < tstop+dt; i = i+dt){
 		t.push(i);
 	}
 	//console.log(t.length);
 	//console.log(t[t.length-1]);
 
 	// make the current injection stim
-	const i_stim = [];
+	var i_stim = [];
 	for (let i = 0; i < t.length; i++ ){
 		if (t[i] > 200 && t[i]<800) {
 			i_stim.push(i_ext)
@@ -167,8 +171,8 @@ function calculate(a, b, c, d) {
 	//console.log(i_stim.length);
 
 	// calculate voltage values
-	const v_values = [];
-	const u_values = [];
+	var v_values = [];
+	var u_values = [];
 	var u = v0*b; // v0 and tstop are still in global scope - bit shit
 	var v = v0;
 	for (let i = 1; i < t.length; i++) {
