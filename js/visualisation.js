@@ -47,11 +47,10 @@ function init() {
 	let d = parseFloat(slider4.value);
 	console.log("init");
 
-	var svg = d3.select("#plot")
-		.append("svg")
+	var svg = d3.select("#plot").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
-		.append("g")
+		    .append("g")
 			.attr("transform",
             	  "translate(" + margin.left + "," + margin.top + ")");
 	
