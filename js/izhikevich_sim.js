@@ -25,35 +25,36 @@ document.getElementById('RS').onclick = runRS;
 document.getElementById('A').onclick  = runA;
 document.getElementById('B').onclick  = runB;
 
-// unused d3 selections for transitions
-var a_selection = d3.selectAll("#aInputId");
-var b_selection = d3.selectAll("#bInputId");
-var c_selection = d3.selectAll("#cInputId");
-var d_selection = d3.selectAll("#dInputId");
-
 function update_a (new_value) {
-        a_slider.value       = new_value;
+        //a_slider.value       = new_value;
+        d3.selectAll("#aInputId").transition().duration(500).attr("value", new_value);
         a_slider_label.value = new_value;
 }
 function update_b (new_value) {
-        b_slider.value       = new_value;
+        //b_slider.value       = new_value;
+        d3.selectAll("#bInputId").transition().duration(500).attr("value", new_value);
+
         b_slider_label.value = new_value;
 }
 function update_c (new_value) {
-        c_slider.value       = new_value;
+        //c_slider.value       = new_value;
+        d3.selectAll("#cInputId").transition().duration(500).attr("value", new_value);
         c_slider_label.value = new_value;
 }
 function update_d (new_value) {
-        d_slider.value       = new_value;
+        //d_slider.value       = new_value;
+        d3.selectAll("#dInputId").transition().duration(500).attr("value", new_value);
         d_slider_label.value = new_value;
 }
 function update_iext (new_value) {
-        iext_slider.value       = new_value;
+        //iext_slider.value       = new_value;
+        d3.selectAll("#iextInputId").transition().duration(500).attr("value", new_value);
+
         iext_slider_label.value = new_value;
 }
 function runFS(){
     console.log('You hit FS button');
-    update_a(0.1); ////a_selection.transition().duration(1000).attr("value", "0.1");
+    update_a(0.1);
     update_b(0.2);
     update_c(-65.0);
     update_d(2);
@@ -177,11 +178,11 @@ function update() {
 }
 
 function calculate() {
-    var a     = parseFloat(a_slider.value);
-    var b     = parseFloat(b_slider.value);
-    var c     = parseFloat(c_slider.value);
-    var d     = parseFloat(d_slider.value);
-	var i_ext = parseFloat(iext_slider.value);
+    var a     = parseFloat(a_slider_label.value);
+    var b     = parseFloat(b_slider_label.value);
+    var c     = parseFloat(c_slider_label.value);
+    var d     = parseFloat(d_slider_label.value);
+	var i_ext = parseFloat(iext_slider_label.value);
 
 	// stationary? sim parameters
 	console.log(a,b,c,d)
