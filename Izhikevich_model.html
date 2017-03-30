@@ -28,12 +28,20 @@ subtitle: Just getting on the internet bandwagon...
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-
     }
 
     .button:hover {
     background-color: #555555;
     color: white;
+    }
+
+    .slider_label{
+    font-family:  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Open Sans', 'Lora','Arial', 'Times New Roman', serif;
+    font-size: 18px;
+    font-weight:500;
+    color: #404040;
+    position: relative;
+    background: #FFF;
     }
 </style>
 
@@ -45,27 +53,27 @@ the parameter "c" is used to set the maximum amplitude of the spike after which 
 </p>
 
 <form name="Izhikevich parameters">
-    <label> <span>A</span>
+    <label> <span class="slider_label">A</span>
     <input type="range" name="aInputName" id="aInputId" value="0.05" min="0" max="0.5" step="0.1" oninput="aOutputId.value = aInputId.value" orient="vertical">
     <output name="aOutputName" id="aOutputId">0.05</output>
     </label>
 
-    <label> <span>B</span>
+    <label> <span class="slider_label">B</span>
     <input type="range" name="bInputName" id="bInputId" value="0.2" min="-0.1" max="0.5" step="0.025" oninput="bOutputId.value = bInputId.value" orient="vertical">
     <output name="bOutputName" id="bOutputId">0.2</output>
     </label>
 
-    <label> <span>C</span>
+    <label> <span class="slider_label">C</span>
     <input type="range" name="cInputName" id="cInputId" value="-55.0" min="-75" max="-40" step="1" oninput="cOutputId.value = cInputId.value" orient="vertical">
     <output name="cOutputName" id="cOutputId">-55.0</output>
     </label>
 
-    <label> <span>D</span>
+    <label> <span class="slider_label">D</span>
     <input type="range" name="dInputName" id="dInputId" value="2.0" min="0" max="10" step="0.5" oninput="dOutputId.value = dInputId.value" orient="vertical">
     <output name="dOutputName" id="dOutputId">2.0</output>
     </label>
 
-    <label> <span>External Current </span>
+    <label> <span class="slider_label">External Current </span>
     <input type="range" name="IinjInputName" id="iextInputId" value="5.0" min="-50" max="50" step="1" oninput="iextOutputId.value = iextInputId.value" orient="vertical">
     <output name="iextOutputName" id="iextOutputId">5.0</output>
     </label>
@@ -82,4 +90,4 @@ the parameter "c" is used to set the maximum amplitude of the spike after which 
 
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="{{ site.baseurl }}/js/visualisation.js" type="text/javascript"></script>
+<script src="{{ site.baseurl }}/js/izhikevich_sim.js" type="text/javascript"></script>

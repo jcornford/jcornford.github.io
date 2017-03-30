@@ -1,35 +1,72 @@
-var slider1 = document.getElementById('aInputId');
-var slider2 = document.getElementById('bInputId');
-var slider3 = document.getElementById('cInputId');
-var slider4 = document.getElementById('dInputId');
-var sliderI = document.getElementById('iextInputId');
+var a_slider       = document.getElementById('aInputId');
+var a_slider_label = document.getElementById('aOutputId');
 
+var b_slider       = document.getElementById('bInputId');
+var b_slider_label = document.getElementById('bOutputId');
+
+var c_slider       = document.getElementById('cInputId');
+var c_slider_label = document.getElementById('cOutputId');
+
+var d_slider       = document.getElementById('dInputId');
+var d_slider_label = document.getElementById('dOutputId');
+
+var iext_slider    = document.getElementById('iextInputId');
+var iext_slider_label = document.getElementById('iextOutputId');
+
+a_slider.onchange = update;
+b_slider.onchange = update;
+c_slider.onchange = update;
+d_slider.onchange = update;
+iext_slider.onchange = update;
+
+// hook up buttons to their functions
 document.getElementById('FS').onclick = runFS;
 document.getElementById('RS').onclick = runRS;
-document.getElementById('A').onclick = runA;
-document.getElementById('B').onclick = runB;
+document.getElementById('A').onclick  = runA;
+document.getElementById('B').onclick  = runB;
 
+// unused d3 selections for transitions
+var a_selection = d3.selectAll("#aInputId");
+var b_selection = d3.selectAll("#bInputId");
+var c_selection = d3.selectAll("#cInputId");
+var d_selection = d3.selectAll("#dInputId");
 
+function update_a (new_value) {
+        a_slider.value       = new_value;
+        a_slider_label.value = new_value;
+}
+function update_b (new_value) {
+        b_slider.value       = new_value;
+        b_slider_label.value = new_value;
+}
+function update_c (new_value) {
+        c_slider.value       = new_value;
+        c_slider_label.value = new_value;
+}
+function update_d (new_value) {
+        d_slider.value       = new_value;
+        d_slider_label.value = new_value;
+}
+function update_iext (new_value) {
+        iext_slider.value       = new_value;
+        iext_slider_label.value = new_value;
+}
 function runFS(){
-    var delay = svg.transition().duration(1000);
     console.log('You hit FS button');
-    d3.selectAll("#aInputId") // can this be made a variable? global?
-      .transition()
-      .duration(2000)
-      .attr("value", "0.1");
-    d3.selectAll("#dInputId")
-      .transition()
-      .duration(2000)
-      .attr("value", "10");
-    //slider1.value = 0.1;
-    slider2.value = 0.2;
-    slider3.value = -65;
-    //slider4.value = 2;
+    update_a(0.1); ////a_selection.transition().duration(1000).attr("value", "0.1");
+    update_b(0.2);
+    update_c(-65.0);
+    update_d(2);
     update();
     }
 
 function runRS(){
-    console.log('You hit RS button')
+    console.log('You hit RS button');
+    update_a(0.02);
+    update_b(0.2);
+    update_c(-65.0);
+    update_d(6);
+    update();
 }
 
 function runA(){
@@ -37,19 +74,18 @@ function runA(){
 }
 
 function runB(){
-    console.log('You hit B button')
+    console.log('You hit Bursting button')
+    update_a(0.1);
+    update_b(0.225);
+    update_c(-40.0);
+    update_d(5);
+    update();
 }
 
-slider1.onchange = update;
-slider2.onchange = update;
-slider3.onchange = update;
-slider4.onchange = update;
-sliderI.onchange = update;
-
 // sim parameters
-var v0      = -75;  // mV
+var v0      = -65;  // mV
 var tstop   = 1000; // ms
-var dt      = 0.25;  // ms
+var dt      = 0.5;  // ms
 
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 50}
@@ -60,16 +96,6 @@ function getMaxOfArray(numArray) { // just use d3.max()
   return Math.max.apply(null, numArray);
 }
 
-//d3.max(dataset, function(d) {    //Returns 480
-//    return d[0];  //References first value in each sub-array
-//});
-
-
-var a = parseFloat(slider1.value);
-var b = parseFloat(slider2.value);
-var c = parseFloat(slider3.value);
-var d = parseFloat(slider4.value);
-
 var svg = d3.select("#plot").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -77,7 +103,7 @@ var svg = d3.select("#plot").append("svg")
         .attr("transform",
               "translate(" + margin.left + "," + margin.top + ")");
 
-var values = calculate(a, b, c, d);
+var values = calculate();
 
 var x_scale = d3.scaleLinear()
             .range( [0, width])    // output values (pixels
@@ -96,7 +122,6 @@ var v_line = d3.line()
         return y_scale(d);
     });
 
-console.log(d3.max(values))
 var pad_y = 25;
 var pad_x = 20;
 
@@ -112,6 +137,7 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
 var yAxis = d3.axisLeft()
     .scale(y_scale)
     .ticks(5); // rough number
+
 var xAxis = d3.axisBottom()
     .scale(x_scale)
     .ticks(5);
@@ -129,71 +155,45 @@ svg.append("g")
     .attr("transform", "translate(" + 0+ ",0)")
     .call(yAxis)
 
-
 function update() {
-    var a = parseFloat(slider1.value);
-    var b = parseFloat(slider2.value);
-    var c = parseFloat(slider3.value);
-    var d = parseFloat(slider4.value);
-    var svg = d3.select("#plot").transition();
-    var new_vals = calculate(a,b,c,d);
-
-    var t0 = svg.transition().duration(1000);
-
+    var new_vals = calculate();
     y_scale.domain([d3.min(new_vals)-10, d3.max(new_vals)+10]);
     yAxis.scale(y_scale)
 
+    var svg = d3.select("#plot");
+    var t0 = svg.transition().duration(1000);
     t0.selectAll(".yaxis")
         .call(yAxis);
 
-    console.log(d3.min(new_vals))
-    console.log(d3.max(new_vals))
-
     svg.select(".v_line")
         .transition()
-        //.delay(function(d,i){ // for inidivudial stiff
+        //.delay(function(d,i){ // cool if had for inidivudial stiff
         //return i*10
         //})
         .duration(1000)
         .attr("d", v_line(new_vals));
         //attr("fill", "hsl("+(Math.random()*360)+",100%,50%)")
-        // random color...
-
-
-    //console.log(new_vals)
-    //console.log(getMaxOfArray(new_vals));
-
+        // for random color...
 }
 
-function calculate(a, b, c, d) {
-	//a = 0.1
-	//b = 0.2
-	//c = -65.0
-	//d = 2.0
-	var i_ext =  parseFloat(sliderI.value);
-	// sim parameters
-    var v0      = -75;  // mV
+function calculate() {
+    var a     = parseFloat(a_slider.value);
+    var b     = parseFloat(b_slider.value);
+    var c     = parseFloat(c_slider.value);
+    var d     = parseFloat(d_slider.value);
+	var i_ext = parseFloat(iext_slider.value);
+
+	// stationary? sim parameters
+	console.log(a,b,c,d)
+    var v0      = -65;  // mV
     var tstop   = 1000; // ms
-    var dt      = 0.25;  // ms
-
-	console.log(i_ext);
-	var klow    = 1.7   // nS/mV
-	var khigh   = 14    // nS/mV
-	var vthresh = -45   // mV
-	var vpeak   = 20    // mV
-
-	var Cm      = 90    // membrane capacitance
-	var ishift  = 0
-	
-	
+    var dt      = 0.5;  // ms
 
 	// make time array
 	var t = [];
 	for (var i = 0; i < tstop+dt; i = i+dt){
 		t.push(i);
 	}
-	//console.log(t.length);
-	//console.log(t[t.length-1]);
 
 	// make the current injection stim
 	var i_stim = [];
@@ -204,21 +204,12 @@ function calculate(a, b, c, d) {
 			i_stim.push(0);
 		}
 	}
-	//console.log(i_stim.length);
-
-	// calculate voltage values
 	var v_values = [];
 	var u_values = [];
 	var u = v0*b; // v0 and tstop are still in global scope - bit shit
 	var v = v0;
 	for (var i = 1; i < t.length; i++) {
-		// not actually using the k thing as diff implementation
-		//if (v < vthresh ){
-		//	var k = klow;
-		//} else {
-		//	k = khigh;
-		//};
-		
+
 		v = v+( (0.04*Math.pow(v,2) + 5*v +140) - u + i_stim[i] )*dt ;
 		u = u+( a*(b*v-u) )*dt;
 
