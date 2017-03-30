@@ -4,6 +4,42 @@ var slider3 = document.getElementById('cInputId');
 var slider4 = document.getElementById('dInputId');
 var sliderI = document.getElementById('iextInputId');
 
+document.getElementById('FS').onclick = runFS;
+document.getElementById('RS').onclick = runRS;
+document.getElementById('A').onclick = runA;
+document.getElementById('B').onclick = runB;
+
+
+function runFS(){
+    var delay = svg.transition().duration(1000);
+    console.log('You hit FS button');
+    d3.selectAll("#aInputId") // can this be made a variable? global?
+      .transition()
+      .duration(2000)
+      .attr("value", "0.1");
+    d3.selectAll("#dInputId")
+      .transition()
+      .duration(2000)
+      .attr("value", "10");
+    //slider1.value = 0.1;
+    slider2.value = 0.2;
+    slider3.value = -65;
+    //slider4.value = 2;
+    update();
+    }
+
+function runRS(){
+    console.log('You hit RS button')
+}
+
+function runA(){
+    console.log('You hit A button')
+}
+
+function runB(){
+    console.log('You hit B button')
+}
+
 slider1.onchange = update;
 slider2.onchange = update;
 slider3.onchange = update;

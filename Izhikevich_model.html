@@ -19,7 +19,7 @@ subtitle: Just getting on the internet bandwagon...
     background-color: white;
     color: black;
     border: 2px solid #555555;
-    padding: 16px 32px;
+    padding: 10px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -29,7 +29,6 @@ subtitle: Just getting on the internet bandwagon...
     transition-duration: 0.4s;
     cursor: pointer;
 
-
     }
 
     .button:hover {
@@ -38,6 +37,7 @@ subtitle: Just getting on the internet bandwagon...
     }
 </style>
 
+<h1>Izhikevich Model Neuron</h1>
 <p> The four parameters: a, b, c and d have different roles. The parameter "a" represents the recovery of the
 membrane after the spike, the parameter "b" takes into account the sensibility of the neuron to the fluctuation of the voltage,
 the parameter "c" is used to set the maximum amplitude of the spike after which the neuron's voltage is reset and the parameter
@@ -73,10 +73,10 @@ the parameter "c" is used to set the maximum amplitude of the spike after which 
 
 </form>
 
-<button class="button">Regular Spiking</button>
-<button class="button">Fast Spiking</button>
-<button class="button">Bursting</button>
-<button class="button">Adapting</button>
+<button class="button" id="RS">Regular Spiking</button>
+<button class="button" id="FS">Fast Spiking</button>
+<button class="button" id="B">Bursting</button>
+<button class="button" id="A">Adapting</button>
 
 <div id="plot"></div>
 
