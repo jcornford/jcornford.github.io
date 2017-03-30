@@ -102,7 +102,7 @@ function update() {
     var svg = d3.select("#plot").transition();
     var new_vals = calculate(a,b,c,d);
 
-    var t0 = svg.transition().duration(1750);
+    var t0 = svg.transition().duration(1000);
 
     y_scale.domain([d3.min(new_vals)-10, d3.max(new_vals)+10]);
     yAxis.scale(y_scale)
@@ -118,7 +118,7 @@ function update() {
         //.delay(function(d,i){ // for inidivudial stiff
         //return i*10
         //})
-        .duration(1700)
+        .duration(1000)
         .attr("d", v_line(new_vals));
         //attr("fill", "hsl("+(Math.random()*360)+",100%,50%)")
         // random color...
