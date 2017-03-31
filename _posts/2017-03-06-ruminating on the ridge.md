@@ -118,6 +118,7 @@ less able to determine the true relationship between $y$ and $X$! We are assumin
  *shrinkage* methods.
   
 *Do we go through geometric interpretation?*
+*Headers to write...*
 
 ## Effect on variance of beta
 

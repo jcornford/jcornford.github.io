@@ -4,6 +4,8 @@ title: Jonathan Cornford's Website
 ---
 <img src="img/color_cropped.jpg">
 
+# Jonathan Cornford
+
 ## Welcome to my home page!
 I'm Jonathan, a final year neuroscience PhD student at Queen Square, UCL. London. I'm interested in how single neurons work, and machine learning.
 After a few blog posts, eventually I intend to have a play with using **spiking** neural networks to solve machine learning problems.
