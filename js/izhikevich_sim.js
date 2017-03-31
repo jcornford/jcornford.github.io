@@ -54,8 +54,8 @@ function update_iext (new_value) {
 }
 function runFS(){
     console.log('You hit FS button');
-    update_a(0.1);
-    update_b(0.2);
+    update_a(0.3);//0.1
+    update_b(0.25);//0.2
     update_c(-65.0);
     update_d(2);
     update();
@@ -72,14 +72,19 @@ function runRS(){
 
 function runA(){
     console.log('You hit A button')
+    update_a(0.02);
+    update_b(0.2);
+    update_c(-55.0);
+    update_d(4);
+    update();
 }
 
 function runB(){
     console.log('You hit Bursting button')
-    update_a(0.1);
-    update_b(0.225);
-    update_c(-40.0);
-    update_d(5);
+    update_a(0.02);
+    update_b(0.2);
+    update_c(-50.0);
+    update_d(2);
     update();
 }
 
