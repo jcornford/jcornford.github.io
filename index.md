@@ -2,12 +2,63 @@
 layout: default
 title: Jonathan Cornford's Website
 ---
-<img src="img/color_cropped.jpg">
 
-# Jonathan Cornford
+<style>
+.imageContainer {
+       background-size: 100%;
+       background-image: url("img/color_cropped.jpg");
+       
+       
+ }
+
+ .image { 
+   position: relative; 
+   
+   width: 100%; /* for IE 6 */
+}
+p span{
+position: absolute;
+   text-align:center;
+   
+   left: 0%;
+   bottom:10%;
+   
+   
+   color: white; 
+   font:  25px  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Open Sans', 'Lora','Arial', 'Times New Roman'; 
+   letter-spacing: 0px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.5);
+   padding: 5px; 
+
+}
+ h1 { 
+   position: absolute;
+   text-align:center;
+   
+   left: 0%;
+   bottom:25%;
+   //width: 100%; 
+}
+ h1 span { 
+   color: white; 
+   font:  45px  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Open Sans', 'Lora','Arial', 'Times New Roman'; 
+   letter-spacing: 0px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.5);
+   padding: 5px; 
+}
+</style>
+
+<div class="image">
+<img src="img/color_cropped.jpg">
+<h1><span>Jonathan Cornford </span></h1>
+<p><span> PhD Neuroscience, UCL</span></p>
+
+</div>
 
 ## Welcome to my home page!
-I'm Jonathan, a final year neuroscience PhD student at Queen Square, UCL. London. I'm interested in how single neurons work, and machine learning.
+I'm Jonathan, about to finish my PhD in neuroscience at Queen Square, UCL. London. I'm interested in how single neurons work, and machine learning.
 After a few blog posts, eventually I intend to have a play with using **spiking** neural networks to solve machine learning problems.
  
  
