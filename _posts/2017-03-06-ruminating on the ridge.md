@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basics 3&#58 Ruminating on the Ridge
+title: Ruminating on the Ridge
 subtitle: Regularising least squares with the squared $l_2$ norm
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basics 2&#58 Linear regression for dummies
+title: Linear regression for dummies
 subtitle: Deriving the least squares solution step-by-step
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basics 2a&#58 Scalar-by-vector derivatives
+title: Scalar-by-vector derivatives
 subtitle: The vector calculus needed for deriving the least squares solution
 ---
 
