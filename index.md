@@ -4,14 +4,10 @@ title: Jonathan Cornford's Website
 ---
 
 <style>
-.imageContainer {
-       background-size: 100%;
-       background-image: url("img/color_cropped.jpg");
-       
-       
+.banner_image {
+      padding-top: 20px;     
  }
-
- .image { 
+ .image_container { 
    position: relative; 
    
    width: 100%; /* for IE 6 */
@@ -19,11 +15,8 @@ title: Jonathan Cornford's Website
 p span{
 position: absolute;
    text-align:center;
-   
    left: 0%;
    bottom:10%;
-   
-   
    color: white; 
    font:  25px  'HelveticaNeue-Light', 'Helvetica Neue Light','Helvetica Neue','Open Sans', 'Lora','Arial', 'Times New Roman'; 
    letter-spacing: 0px;  
@@ -50,8 +43,8 @@ position: absolute;
 }
 </style>
 
-<div class="image">
-<img src="img/color_cropped.jpg">
+<div class="image_container">
+<img class= "banner_image" src="img/color_cropped.jpg">
 <h1><span>Jonathan Cornford </span></h1>
 <p><span> PhD Neuroscience, UCL</span></p>
 
