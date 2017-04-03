@@ -68,6 +68,6 @@ did not involve huge amounts of maths, but I found when reading articles on mach
  is a pretty big step up :] ( half of page 45, lines 3.3 to 3.6, is the entire focus of [posts 2](2017-01-07-least-squares-for-dummies/) and [2a](2017-01-08-scalar-by-vector-derivatives-for-least-squares)). 
  
  
-So, this [blog](/blog) is intended to cross that bridge, filling in the details I wanted when first reading about a given topic. I'll also try to use coding to inform the maths, as maths really started making more sense to me when thinking in terms of code. 
+So, this [blog](/blog/) is intended to cross that bridge, filling in the details I wanted when first reading about a given topic. I'll also try to use coding to inform the maths, as maths really started making more sense to me when thinking in terms of code. 
 
 <a href="{{ blog | prepend: site.baseurl }}">
