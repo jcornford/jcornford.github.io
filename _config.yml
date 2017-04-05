@@ -14,10 +14,10 @@ baseurl: ""
 # Of course don't forget to change the username and projectname to YOUR username and project
 
 # Name of website ## this is what happens in the top left of the page!
-title: Home
+title: Jonathan Cornford Homepage
 
 # Short description of your site
-description: Just attempting to get on the internet bandwagon!
+description: Personal website for Jonathan Cornford, blog, data science, machine learning, statistics, neuroscience
 
 # --- Navigation bar options --- #
 

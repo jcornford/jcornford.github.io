@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Jonathan Cornford - Homepage
+title: Jonathan Cornford
 ---
 
 <style>

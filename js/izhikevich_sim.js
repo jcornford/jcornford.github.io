@@ -19,6 +19,8 @@ c_slider.onchange = update;
 d_slider.onchange = update;
 iext_slider.onchange = update;
 
+//d3.select(window).on('resize', resize); // when this finally works call this!
+
 // hook up buttons to their functions
 document.getElementById('FS').onclick = runFS;
 document.getElementById('RS').onclick = runRS;
@@ -98,16 +100,28 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50}
 var width  = 600; // this is pixels
 var height = 300;
 
-function getMaxOfArray(numArray) { // just use d3.max()
-  return Math.max.apply(null, numArray);
-}
 
-var svg = d3.select("#plot").append("svg")
+
+var svg = d3.select("#plot")
+        .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-              "translate(" + margin.left + "," + margin.top + ")");
+             "translate(" + margin.left + "," + margin.top + ")");
+             
+// attemtpts (failed) to make plot responsive to window scaling
+//var svg = d3.select("#plot")
+//        .classed("svg-container", true) //container class to make it responsive
+//        .append("svg")
+        //responsive SVG needs these 2 attributes and no width and height attr
+//        .attr("preserveAspectRatio", "xMinYMin meet")
+ //       .attr("viewBox", "0 0 300 600")
+        //class to make it responsive
+ //       .classed("svg-content-responsive", true);
+        //.append("g")
+        //.attr("transform",
+        //      "translate(" + margin.left + "," + margin.top + ")");
 
 var values = calculate();
 
@@ -137,7 +151,8 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
     .attr("d", v_line(values))
     .attr("stroke-width", 0.5)
     .attr("fill","none")
-    .attr("class", "v_line");
+    .attr("class", "v_line")
+    .attr("class", "line");
 
 // sort out axis
 var yAxis = d3.axisLeft()
@@ -160,6 +175,34 @@ svg.append("g")
     .attr("class", "yaxis")
     .attr("transform", "translate(" + 0+ ",0)")
     .call(yAxis)
+
+function resize(){
+    console.log(window.innerWidth,window.innerHeight);
+    var width  = parseInt(d3.select("#plot").style("width")) - margin.left - margin.right;
+    var height = parseInt(d3.select("#plot").style("height")) - margin.top - margin.bottom;
+    console.log(height,width);
+    x_scale.range([0, width]);//.nice();
+    y_scale.range([height, 0]);//.nice();
+    svg.attr('width', width + margin.right + margin.left)
+      .attr('height', height + margin.top + margin.bottom);
+    //chartWrapper.attr("transform",
+    //         "translate(" + margin.left + "," + margin.top + ")");
+
+    xAxis.scale(x_scale);
+    yAxis.scale(y_scale);
+
+    /* Update the axis with the new scale */
+    svg.select('.xaxis')
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+    svg.select('.yaxis')
+    .call(yAxis);
+    //var new_vals = calculate();
+    /* Force D3 to recalculate and update the line */
+    svg.selectAll('.v_line')
+    .attr("d", v_line);
+    }
 
 function update() {
     var new_vals = calculate();
