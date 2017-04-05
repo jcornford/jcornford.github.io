@@ -41,6 +41,19 @@ position: absolute;
    background: rgba(0, 0, 0, 0.5);
    padding: 5px; 
 }
+@media (max-width: 400px){
+
+    h1 span{
+    font-size:30px;
+    }
+    p span{
+    font-size:15px;
+    bottom:5%;
+    }
+    #welcome-to-my-home-page,#why-this-website {
+    font-size:25px;
+    }
+}
 </style>
 
 <div class="image_container">
