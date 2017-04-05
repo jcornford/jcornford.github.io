@@ -109,7 +109,7 @@ var svg = d3.select("#plot")
         .append("g")
         .attr("transform",
              "translate(" + margin.left + "," + margin.top + ")");
-             
+
 // attemtpts (failed) to make plot responsive to window scaling
 //var svg = d3.select("#plot")
 //        .classed("svg-container", true) //container class to make it responsive
@@ -151,8 +151,8 @@ svg.append("path") //  in svg can append elemetns such as circle and rectagle, p
     .attr("d", v_line(values))
     .attr("stroke-width", 0.5)
     .attr("fill","none")
-    .attr("class", "v_line")
-    .attr("class", "line");
+    .attr("class", "v_line");
+    //.attr("class", "line");
 
 // sort out axis
 var yAxis = d3.axisLeft()
@@ -165,6 +165,8 @@ var xAxis = d3.axisBottom()
 
 svg.append("g")
         .attr("class", "xaxis")
+        .style("font-family",'HelveticaNeue-Light')//,'Helvetica Neue Light','Helvetica Neue','Open Sans')
+        .style("font-size","15px")
         .attr("transform", "translate(0," + height + ")")
         //Note the use of translate (h), so the group’s top edge is set to h, the
         .call(xAxis)
@@ -173,6 +175,8 @@ svg.append("g")
 
 svg.append("g")
     .attr("class", "yaxis")
+    .style("font-family",'HelveticaNeue-Light')
+    .style("font-size","15px")
     .attr("transform", "translate(" + 0+ ",0)")
     .call(yAxis)
 
@@ -195,6 +199,7 @@ function resize(){
     svg.select('.xaxis')
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
+
 
     svg.select('.yaxis')
     .call(yAxis);

@@ -5,6 +5,11 @@ subtitle: Just getting on the internet bandwagon...
 ---
 
 <style>
+    .slider_output{
+    font-weight: 500;
+    font-size:18px;
+    }
+
     .svg-container {
     display: inline-block;
     position: relative;
@@ -106,27 +111,27 @@ the parameter "c" is used to set the maximum amplitude of the spike after which 
 <form class = "centre" name="Izhikevich parameters">
     <label> <span class="slider_label">A</span>
     <input type="range" name="aInputName" id="aInputId" value="0.05" min="0" max="0.2" step="0.01" oninput="aOutputId.value = aInputId.value" orient="vertical">
-    <output name="aOutputName" id="aOutputId">0.05</output>
+    <output class="slider_output" name="aOutputName" id="aOutputId">0.05</output>
     </label>
 
     <label> <span class="slider_label">B</span>
     <input type="range" name="bInputName" id="bInputId" value="0.2" min="0" max="0.3" step="0.01" oninput="bOutputId.value = bInputId.value" orient="vertical">
-    <output name="bOutputName" id="bOutputId">0.2</output>
+    <output class="slider_output" name="bOutputName" id="bOutputId">0.2</output>
     </label>
 
     <label> <span class="slider_label">C</span>
     <input type="range" name="cInputName" id="cInputId" value="-55.0" min="-75" max="-40" step="0.5" oninput="cOutputId.value = cInputId.value" orient="vertical">
-    <output name="cOutputName" id="cOutputId">-55.0</output>
+    <output class="slider_output" name="cOutputName" id="cOutputId">-55.0</output>
     </label>
 
     <label> <span class="slider_label">D</span>
     <input type="range" name="dInputName" id="dInputId" value="2.0" min="0" max="10" step="0.1" oninput="dOutputId.value = dInputId.value" orient="vertical">
-    <output name="dOutputName" id="dOutputId">2.0</output>
+    <output class="slider_output" name="dOutputName" id="dOutputId">2.0</output>
     </label>
 
     <label> <span class="slider_label">External Current </span>
-    <input type="range" name="IinjInputName" id="iextInputId" value="5.0" min="-50" max="50" step="1" oninput="iextOutputId.value = iextInputId.value" orient="vertical">
-    <output name="iextOutputName" id="iextOutputId">5.0</output>
+    <input type="range" name="IinjInputName" id="iextInputId" value="5.0" min="-20" max="50" step="1" oninput="iextOutputId.value = iextInputId.value" orient="vertical">
+    <output class="slider_output" name="iextOutputName" id="iextOutputId">5.0</output>
     </label>
 
 
