@@ -122,6 +122,58 @@ less able to determine the true relationship between $y$ and $X$! We are assumin
 
 ## Effect on variance of beta
 
-## Increasing Eigenvalues/determinant
+It's easy to think in terms of "for a particular dataset what is the best fitting $\beta$", and adding the regularising term
+just helps prevent overfitting $\beta$ to this dataset. While this is correct, it's just one side of the coin. Instead, if
+ we treat our particular dataset as being just one of the many possible datasets that could theoretically have been collected, 
+ (e.g. the group of people we randomly talked to out of a larger group) we can think in terms of how consistent our estimation
+ of $\beta$ will be across these groups. Or, similarly, if we start removing random samples from our dataset, how robust will our
+ $\beta$ fit be to these changes. This estimate of $\beta$ variance is what we need to start constructing confidence intervals for 
+ $\beta$'s and what we will ultimatetly use for hypothesis testing. 
+ 
+We therefore want to know:
 
-## Pseudo inverse link
+$$var(\beta)$$
+
+or, as actually we just have our estimate for $\beta$:
+
+$$ var(\beta) = var\big((X^TX)^{-1}X^Ty\big) $$
+
+*below I'm just writing the equations: should come back later and sort this out with proper notes*
+
+making use of
+
+$$var(AB) = A var(B) A^T$$
+
+where A is a non-stochastic matrix, but B is stochastic. And now treating $(X^TX)^{-1}X^T$ as $A$, and $y$ as $B$ (think of the error on each sample):
+
+$$ var(\beta) = (X^TX)^{-1}X^T var(y) \big((X^TX)^{-1}X^T \big)^T $$
+
+now remembering our transpose and inverse rules.. *(put link in to rules)*
+
+$$ var(\beta) = (X^TX)^{-1}X^T var(y) X (X^TX)^{-1}$$
+
+now comes big assumption of the form of the errors on y... (*write out I matrix explicitly so can see no correlation of errors as just diagonal non zero*
+)
+
+$$ var(y) = \sigma^2I$$
+
+$$ var(\beta) = (X^TX)^{-1}X^T \sigma^2I X (X^TX)^{-1}$$
+
+move the scalar constant $\sigma^2$ in front and multiply $I$ with $A$. 
+
+$$ var(\beta) = \sigma^2 (X^TX)^{-1}X^T X (X^TX)^{-1}$$
+
+now cancel the inverse:
+
+$$ var(\beta) = \sigma^2 (X^TX)^{-1}$$
+
+the larger $X^TX$ the smaller $(X^TX)^{-1}$ and therefore the smaller the variance of our estimator.
+
+For ridge regression, following the above steps yields:
+
+$$var(\beta_{ridge}) = \sigma^2(X^TX+\lambda I)^{-1}X^TX(X^TX+\lambda I)^{-1}$$
+
+Following the same logic of making the contents of the brackets that are to be inverted larger, 
+adding the ridge penalty will decrease the variance of our estimate of $\beta$.
+
+*possible extra sections: Eigenvalues/determinant, Pseudo inverse stuff*
