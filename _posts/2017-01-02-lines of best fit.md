@@ -4,7 +4,7 @@ title: Lines of best fit!
 subtitle: Plotting lines of best-fit using python
 author: Jonathan Cornford
 ---
-In this post we are going to through fitting a line of best fit using python. If you just want the python code, feel 
+In this post we are going to through fitting a line of best fit using python. If you just want the python code feel 
 free to just read the first section. 
 
 <span style="color:red"> Note: This post assumes you didn't do much maths at university/college (specifically least squares fitting), or that you were drunk and forgot! It serves as a starter for future, more challenging posts!</span>

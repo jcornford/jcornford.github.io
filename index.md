@@ -63,6 +63,9 @@ position: absolute;
 
 </div>
 
+
+![my-mugshot](/img/photojc.jpg){:style="float: left;margin-right: 15px;margin-top: 0px;"}
+
 ### Welcome!
 Hi, I'm Jonathan, about to finish my PhD in neuroscience at Queen Square, University College London. I'm interested in how
  single neurons work, machine learning, and data science. After a few blog posts, eventually I intend to have a play with
