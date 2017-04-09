@@ -37,6 +37,7 @@
 		  
 		  {% if include.type == "post" %}
 		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+		  <span class="author">By {{ page.author }}</span>
 		  {% endif %}
         </div>
       </div>
@@ -45,6 +46,7 @@
   <span class='img-desc'></span>
 </div>
 {% endif %}
+
 <div class="intro-header no-img">
   <div class="container">
     <div class="row">
@@ -62,6 +64,7 @@
 		  
 		  {% if include.type == "post" %}
 		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+          <span class="post-meta">by {{ page.author }}</span>
 		  {% endif %}
         </div>
       </div>

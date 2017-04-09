@@ -2,12 +2,15 @@
 layout: post
 title: Lines of best fit!
 subtitle: Plotting lines of best-fit using python
+author: Jonathan Cornford
 ---
+In this post we are going to through fitting a line of best fit using python. If you just want the python code, feel 
+free to just read the first section. 
 
-<span style="color:red"> Warning: This post assumes you didn't do much maths at university/college (specifically least squares fitting), or that you were drunk and forgot! It serves as a starter for future, more challenging posts!</span>
+<span style="color:red"> Note: This post assumes you didn't do much maths at university/college (specifically least squares fitting), or that you were drunk and forgot! It serves as a starter for future, more challenging posts!</span>
 
 Fitting a line of best-fit **is an example of Machine Learning**. It is also considered by many to be a basic thing 
-that you can just "do" when plotting data - a problem to be laid firmly at Excel's feet. It's not basic or simple, and shouldn't be
+that you can just "do" when plotting data - a problem that maybe should be laid firmly at Excel's feet. It's really not that basic or simple, and shouldn't be
 considered so.
  
 That said, this first post has two basic aims:

@@ -2,6 +2,7 @@
 layout: post
 title: Linear regression for dummies
 subtitle: Deriving the least squares solution step-by-step
+author: Jonathan Cornford
 ---
 
 <span style="color:red"> In this post I'm going to assume you know the basics of linear algebra. If you are unfamiliar

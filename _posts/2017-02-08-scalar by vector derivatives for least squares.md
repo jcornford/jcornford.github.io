@@ -2,6 +2,7 @@
 layout: post
 title: Scalar-by-vector derivatives
 subtitle: The vector calculus needed for deriving the least squares solution
+author: Jonathan Cornford
 ---
 
 Here we are taking a break from the last [post](../2017-02-07-least-squares-for-dummies) and going to go through, step by step, the solution to:

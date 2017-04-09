@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Ruminating on the Ridge
-subtitle: Regularising least squares with the squared $l_2$ norm
+subtitle: Regularising least squares with the squared $l_2$ norm]
+author: Jonathan Cornford
 ---
 
 Ridge regression is an extension of least squares in which we impose a penalty on the size of the regression coefficients.
