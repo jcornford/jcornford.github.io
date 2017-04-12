@@ -118,28 +118,24 @@ less able to determine the true relationship between $y$ and $X$! We are assumin
  this shrinking, regularisation techniques, such as adding the ridge penalty, are referred to by the literature as 
  *shrinkage* methods.
   
-*Do we go through geometric interpretation?*
-*Headers to write...*
+[//]: # *Do we go through geometric interpretation?*
+[//]: # *Headers to write...*
 
 ## Effect on variance of beta
 
 It's easy to think in terms of "for a particular dataset what is the best fitting $\beta$", and adding the regularising term
 just helps prevent overfitting $\beta$ to this dataset. While this is correct, it's just one side of the coin. Instead, if
- we treat our particular dataset as being just one of the many possible datasets that could theoretically have been collected, 
+ we treat our particular dataset as being just one of the many possible datasets that could theoretically have been collected 
  (e.g. the group of people we randomly talked to out of a larger group) we can think in terms of how consistent our estimation
  of $\beta$ will be across these groups. Or, similarly, if we start removing random samples from our dataset, how robust will our
  $\beta$ fit be to these changes. This estimate of $\beta$ variance is what we need to start constructing confidence intervals for 
  $\beta$'s and what we will ultimatetly use for hypothesis testing. 
  
-We therefore want to know:
-
-$$var(\beta)$$
-
-or, as actually we just have our estimate for $\beta$:
+We therefore want to know the variance of our beta estimate:
 
 $$ var(\beta) = var\big((X^TX)^{-1}X^Ty\big) $$
 
-*below I'm just writing the equations: should come back later and sort this out with proper notes*
+<span style="color:red">*Below is not finished: I'm just writing the equations, will come back later and sort this out with proper notes*</span>
 
 making use of
 

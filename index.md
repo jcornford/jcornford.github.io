@@ -68,14 +68,13 @@ position: absolute;
 
 ### Welcome!
 Hi, I'm Jonathan, about to finish my PhD in neuroscience at Queen Square, University College London. I'm interested in how
- single neurons work, machine learning, and data science. After a few blog posts, eventually I intend to have a play with
-  using [**spiking**](Izhikevich_model/) neural networks to solve machine learning problems.
+ single neurons work, machine learning, and data science. After a few blog posts on standard machine learning, eventually I intend to have a play with
+  using neural networks and [**spiking**](Izhikevich_model/) neural networks to solve machine learning problems.
  
  
 
 ### So why this website?
-My background is biological, specifically Physiological Sciences (aka Medicine without the troublesome ill people). As such,
- my undergraduate degree did not involve huge amounts of maths. As my interest in machine learning and datascience grew,
+My background is biological, specifically Physiological Sciences (aka Medicine without the troublesome ill people). As my interest in machine learning and datascience grew,
  I learned the maths along the way, but I found when reading articles on machine learning that quite often the reader is
  assumed to be pre-exposed to the mathematical topics under discussion. So I'd then have to go somewhere else and read the maths,
  breaking things up, and I'd only come back to the original page or notes if I remembered!
