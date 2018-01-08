@@ -83,7 +83,7 @@ My background is biological, specifically Physiological Sciences (aka Medicine w
  or implementation details, which can be really great, e.g. [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/),
   but I often wished for more details. However, if you go looking for those details, again generally a prior familiarity 
   with the maths is assumed - [Elements of Statisitical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)
- is a pretty big step up from [ISLR](http://www-bcf.usc.edu/~gareth/ISL/) :] ( half of page 45, lines 3.3 to 3.6, is the entire focus of [posts 2](2017-01-07-least-squares-for-dummies/) and [2a](2017-01-08-scalar-by-vector-derivatives-for-least-squares)). 
+ is a pretty big step up from [ISLR](http://www-bcf.usc.edu/~gareth/ISL/) :] ( half of page 45, lines 3.3 to 3.6, is the entire focus of [posts 2](2017-02-07-least-squares-for-dummies/) and [2a](2017-02-08-scalar-by-vector-derivatives-for-least-squares)). 
  
  
 So, this [blog](/blog/) is intended to be in-between option, to cross that bridge, filling in the details I wanted
