@@ -67,27 +67,7 @@ position: absolute;
 ![my-mugshot](/img/photojc.jpg){:style="float: left;margin-right: 15px;margin-top: 0px;"}
 
 ### Welcome!
-Hi, I'm Jonathan, about to finish my PhD in neuroscience at Queen Square, University College London. I'm interested in how
- single neurons work, machine learning, and data science. After a few blog posts on standard machine learning, eventually I intend to have a play with
-  using neural networks and [**spiking**](Izhikevich_model/) neural networks to solve machine learning problems.
- 
- 
-
-### So why this website?
-My background is biological, specifically Physiological Sciences (aka Medicine without the troublesome ill people). As my interest in machine learning and datascience grew,
- I learned the maths along the way, but I found when reading articles on machine learning that quite often the reader is
- assumed to be pre-exposed to the mathematical topics under discussion. So I'd then have to go somewhere else and read the maths,
- breaking things up, and I'd only come back to the original page or notes if I remembered!
-
- Alternatively, things might be laser-focused on concepts
- or implementation details, which can be really great, e.g. [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/),
-  but I often wished for more details. However, if you go looking for those details, again generally a prior familiarity 
-  with the maths is assumed - [Elements of Statisitical Learning](https://statweb.stanford.edu/~tibs/ElemStatLearn/)
- is a pretty big step up from [ISLR](http://www-bcf.usc.edu/~gareth/ISL/) :] ( half of page 45, lines 3.3 to 3.6, is the entire focus of [posts 2](2017-02-07-least-squares-for-dummies/) and [2a](2017-02-08-scalar-by-vector-derivatives-for-least-squares)). 
- 
- 
-So, this [blog](/blog/) is intended to be in-between option, to cross that bridge, filling in the details I wanted
- when first reading about a given topic, but going through the maths in a bit more detail. I also would like to use coding to inform the maths, as maths really started making
-  more sense to me when thinking in terms of code. 
+Hi, I'm Jonathan, I've just finished my PhD in neuroscience at University College London. I'm interested in how
+ the brain and single neurons work, neural networks, artificial intelligence and data science. 
 
 <a href="{{ blog | prepend: site.baseurl }}">
