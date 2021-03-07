@@ -152,7 +152,7 @@ $\mathbf{\beta}$ is our vector of weights, or coefficients
 
 <span style="color:red"> Don't worry if you've not done/forgotten what happens when a vector and matrix meet. Above is just 
 a concise way of writing $ \sum_{i}^{n}y_i = \sum_{i}^{n}w_0x_i^0 + w_1x_i^1 + ... + + w_{p}x_i^{p}$. So we are just looping through all
- of the datapoints in the $\mathbf{y}$ and original $\mathbf{x}$ vectors. If this isn't clear, smash down a comment below and I'll edit it!  </span>
+ of the datapoints in the $\mathbf{y}$ and original $\mathbf{x}$ vectors. </span>
 
 
 ## Okay, well know we know this, we don't need np.polyfit!
