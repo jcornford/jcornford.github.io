@@ -54,11 +54,11 @@ $\mathbf{y}$ is a $N$ dimensional vector of y values<br>
 $w$ is a scalar that weights the $x$ value <br>
 $b$ is a scalar offset or bias (intercept)
 
-In essence, the two parameters you are fitting, $w$ & $b$, take an $x$ value, and predict what the corresponding $y$ value should be. How does np.polyfit do this? Well, the fitting procedure that np.polyfit uses is least squares, to which the solution, happily, has a neat closed form expression:
+In essence, the two parameters you are fitting, $w$ & $b$, are combined with an $x$ value to predict what a corresponding $y$ value should be. How does np.polyfit do this? Well, the fitting procedure that np.polyfit uses is least squares, which has a neat solution:
 
 $$ (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^{T}\mathbf{y} = \mathbf{\beta} $$
 
-Wait, what? Don't worry, we'll go through how we get to this "neat expression" in the [next post](../2017-01-07-least-squares-for-dummies), but more pressingly, why has $\mathbf{x}$ changed to $\mathbf{X}$ and what is $\mathbf{\beta}$?
+Wait, what? Don't worry, we'll go through how we get to this "neat solution" in the [next post](../2017-01-07-least-squares-for-dummies), but for now, why has $\mathbf{x}$ changed to $\mathbf{X}$ and what is $\mathbf{\beta}$?
 
 **First**, $\mathbf{\beta}$ : this is now a vector (similar to a list), and it looks like $[w, b]^T$ - it's a column vector, hence the $^T$. Therefore $\mathbf{\beta}$[0] will give you your x-weight, $w$, and $\mathbf{\beta}$[1] your bias, $b$.
  
