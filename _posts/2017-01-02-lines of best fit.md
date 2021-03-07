@@ -92,11 +92,7 @@ plt.plot(x,line, 'r--')
 Okay, so that's all good, but what if you want a curvey line of best fit, to join up the points...? <br>
 
 ## Give me a line that goes nicely through my points:
-**Sigh**... I'm a devoted member of the club of "your-line-reflects-your-hypothesis-on-the-data-generating-process", i.e.
- **don't** just aim for the line to go through all your datapoints unless you think the underlying relationship 
- between x and y is truely the nature of the function that describes your line. If in doubt use a straight line, or let the datapoints speak for themselves.
- 
-However, if you insist, we can just dial up and down the polynomial degree argument in polyfit...:
+If you want that we can just dial up and down the polynomial degree argument in polyfit...:
 
 *Note small edits to the code here! We now return a convenience object from the function, which allows us to pass in new xvalues*
  
@@ -126,7 +122,7 @@ We are now augmenting our $x$'s by raising them to powers from 0 - to our polyno
 
 $$ y = w_0x^0 + w_1x^1 + w_2x^2 + ... + w_{p-1}x^{p-1}+ w_{p}x^{p}$$
 
-This can be better expressed using a summation sign (think for loop):
+This can be better expressed using a summation sign:
 
 $$y = \sum_{i = 0}^{p} w_ix^i $$
 
@@ -202,5 +198,5 @@ plt.plot(x_line,y_line, 'r--')
 ```
 ![line with polyfit](/blog_assets/1_data_curve_numpy.png)
 
-p.s. It's probably worth writing that in practice, people don't actually invert $X^TX$ so directly. Instead, you should
+p.s. It's probably worth noting that in practice, people don't actually invert $X^TX$ so directly. Instead, you should
 use things like np.linalg.lstsq().
