@@ -7,13 +7,9 @@ author: Jonathan Cornford
 In this post we are going to through fitting a line of best fit using python. If you just want the python code feel 
 free to just read the first section. 
 
-<span style="color:red"> Note: This post assumes you didn't do much maths at university/college (specifically least squares fitting), or that you were drunk and forgot! It serves as a starter for future, more challenging posts!</span>
+<span style="color:red"> Note: This post assumes you didn't do much maths at university/college, or that you just forgot! It serves as a starter for future, more challenging posts!</span>
 
-Fitting a line of best-fit **is an example of Machine Learning**. It is also considered by many to be a basic thing 
-that you can just "do" when plotting data - a problem that maybe should be laid firmly at Excel's feet. It's really not that basic or simple, and shouldn't be
-considered so.
- 
-That said, this first post has two basic aims:
+This first post has two basic aims:
 
 1. Give some simple code to make some lines
 2. Spark an interest and understanding of why **aim 1** in isolation isn't a particularly good idea
@@ -48,7 +44,7 @@ plt.plot(x,line,'r--')
 {% endhighlight %}
 ![line with polyfit](/blog_assets/1_data_line_polyfit.png)
 
-There: if all you wanted was the code for a straight line through your data, you should be all set! ...However, we should really talk about what you are actually doing with this code (as no doubt a small part of you wants to know?!). You are approximating a function of the following form:
+There: if all you wanted was the code for a straight line through your data, you should be all set! ...However, we should really talk about what you are actually doing with this code. You are approximating a function of the following form:
 
 $$ \mathbf{y} \approx  w\mathbf{x} + b $$
 
