@@ -67,7 +67,5 @@ position: absolute;
 ![my-mugshot](/img/photojc.jpg){:style="float: left;margin-right: 15px;margin-top: 0px;"}
 
 ### Welcome!
-Hi, I'm Jonathan, I've just finished my PhD in neuroscience at University College London. I'm interested in how
- the brain and single neurons work, neural networks, artificial intelligence and data science. 
-
+Hi, I'm Jonathan, I'm a Research Scientist at MILA - Quebec AI institute, working with Professor Blake Richards. In general I am interested in the intersection of neuroscience and artificial intelligence.
 <a href="{{ blog | prepend: site.baseurl }}">
